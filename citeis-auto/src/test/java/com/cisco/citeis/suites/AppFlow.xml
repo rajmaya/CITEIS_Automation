@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Application Flow" verbose="5">
+	<test name="Application Flow">
+		<classes>
+			<class name="com.cisco.citeis.scripts.VerifyAppFlow" >
+			<methods>
+					<include name="validateAppFlow" />
+			</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>
