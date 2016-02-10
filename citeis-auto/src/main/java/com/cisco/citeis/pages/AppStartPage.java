@@ -29,11 +29,18 @@ public class AppStartPage {
 		this.driver = driver;
 	}
 
+	/**
+	 * To Click on Manage Button
+	 * @return
+	 */
 	public HomePage clickManageBtn() {
 		Button.click("Manage", manageBtn, driver);
 		return PageFactory.initElements(driver, HomePage.class);
 	}
 	
+	/**
+	 * To check if the ACC Page is loaded
+	 */
 	public void checkPageLoaded(){
 		if(Element.verify("ACC Application Header", accHeader, driver)){
 			ATUReports.add("Validating Application Centric Cloud page is loaded","Application Centric Cloud page should load","Application Centric Cloud page is loaded", LogAs.PASSED, null);

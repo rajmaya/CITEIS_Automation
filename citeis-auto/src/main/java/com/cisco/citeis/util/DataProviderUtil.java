@@ -17,6 +17,12 @@ public class DataProviderUtil {
 		Iterator<Object[]> testData=ExcelUtil.getTestData(System.getProperty("user.dir")+"/inputs/TestData.xlsx", "AppFlow");
 		return testData;
 	}
+	
+	@DataProvider(name="CreateEPG",parallel=false)
+	public static Iterator<Object[]> createEPG(){
+		Iterator<Object[]> testData=ExcelUtil.getTestData(System.getProperty("user.dir")+"/inputs/TestData.xlsx", "Create EPG");
+		return testData;
+	}
 
 	}
 }

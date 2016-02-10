@@ -26,6 +26,8 @@ import atu.testng.selenium.reports.CaptureScreen;
 import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
 
 import com.cisco.citeis.pages.AppStartPage;
+import com.cisco.citeis.pages.ApplicationDetailsPage;
+import com.cisco.citeis.pages.CurrentProfilePage;
 import com.cisco.citeis.pages.HomePage;
 import com.cisco.citeis.pages.MyApplicationsPage;
 import com.cisco.citeis.util.LoggerUtil;
@@ -40,6 +42,8 @@ public class TestBase {
 	public HomePage homePage;
 	public AppStartPage appStartPage;
 	public MyApplicationsPage myApplicationsPage;
+	public ApplicationDetailsPage applicationDetailsPage;
+	public CurrentProfilePage currentProfilePage;
 	Logger log = LoggerUtil.getLogger(getClass().getSimpleName());
 
 	{
@@ -47,7 +51,7 @@ public class TestBase {
 				+ "atu.properties");
 	}
 
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void init() {
 		new PropertyUtil().getProperties();
 		String browserName = PropertyUtil.configMap.get("BROWSER");

@@ -29,6 +29,10 @@ public class HomePage {
 		this.driver = driver;
 	}
 
+	/**
+	 * Checks if 'My Applications' page is displayed , if not clicks on 'My Applications' link from the left panel
+	 * @return
+	 */
 	public MyApplicationsPage clickMyApplications() {
 		if(Element.verify("My Applications header", myApplicationshdr, driver)){
 			ATUReports.add("Checking for 'My Applications' to be displayed","My Applications Page should be displayed","My Applications Page is displayed", LogAs.PASSED, null);
