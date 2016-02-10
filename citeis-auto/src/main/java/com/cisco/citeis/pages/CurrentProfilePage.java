@@ -86,7 +86,7 @@ public class CurrentProfilePage {
 				for(WebElement epg : tableRows){
 					epgs.append(epg.getText()+",");
 				}
-				ATUReports.add("Validating if EPGs are displaying","EPGs are displayed in "+expectedProfile,epgs.substring(0, epgs.length()-1)+" EPGs are displayed for <b>'"+profileName+"'</b>",LogAs.PASSED, null);
+				ATUReports.add("Validating if EPGs are displaying","EPGs are displayed in "+expectedProfile,epgs.substring(0, epgs.length()-1)+" EPGs are displayed for <b>'"+expectedProfile+"'</b>",LogAs.PASSED, null);
 				Link.click("Current Profile", currentProfileTab, driver);
 				Link.click("Instance", instanceLink, driver);
 				Sync.waitForSeconds(3, driver);
