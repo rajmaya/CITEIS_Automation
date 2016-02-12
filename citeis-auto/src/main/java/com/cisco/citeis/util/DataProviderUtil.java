@@ -12,7 +12,7 @@ public class DataProviderUtil {
 	
 	public static class StaticProviderClass{
 	
-	@DataProvider(name="CiteisData",parallel=false)
+	@DataProvider(name="CiteisData",parallel=true)
 	public static Iterator<Object[]> citeisData(){
 		Iterator<Object[]> testData=ExcelUtil.getTestData(System.getProperty("user.dir")+"/inputs/TestData.xlsx", "AppFlow");
 		return testData;
