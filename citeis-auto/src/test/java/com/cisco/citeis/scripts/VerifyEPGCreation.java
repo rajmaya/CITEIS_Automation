@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.ITest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
 import com.cisco.citeis.pages.AppStartPage;
@@ -17,14 +18,22 @@ import com.cisco.citeis.util.DataProviderUtil.StaticProviderClass;
 
 public class VerifyEPGCreation extends TestBase implements ITest{
 	
+	protected Map<String,String>dataMap;
+	
+	@Factory(dataProvider="CiteisData",dataProviderClass=StaticProviderClass.class)
+	public VerifyEPGCreation() {
+		// TODO Auto-generated constructor stub
+		this.dataMap=dataMap;
+	}
 	String testCase = "";
 	String mTestCaseName = "";
 
 	@SuppressWarnings("unchecked")
 	@BeforeMethod(alwaysRun = true)
 	public void data(Method method, Object[] data) {
-		driver.get(PropertyUtil.configMap.get("URL"));
-		driver.manage().window().maximize();
+		/*driver.get(PropertyUtil.configMap.get("URL"));
+		driver.manage().window().maximize();*/
+		init(dataMap);
 		appStartPage = PageFactory.initElements(driver, AppStartPage.class);
 		if (data != null && data.length > 0) {
 			HashMap<String,String> elements = null;

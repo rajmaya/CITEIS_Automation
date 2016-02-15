@@ -1,21 +1,36 @@
 package com.cisco.citeis.scripts;
 
+import java.util.Map;
+
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Factory;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.cisco.citeis.pages.AppStartPage;
 import com.cisco.citeis.testBase.TestBase;
+import com.cisco.citeis.util.DataProviderUtil.StaticProviderClass;
 import com.cisco.citeis.util.PropertyUtil;
 
 public class VerifyAppFlow extends TestBase{
+	
+	protected Map<String,String>dataMap;
+	
+	@Factory(dataProvider="CiteisData",dataProviderClass=StaticProviderClass.class)
+	public VerifyAppFlow(Map<String, String> dataMap) {
+		this.dataMap=dataMap;
+		// TODO Auto-generated constructor stub
+	}
+	
+
 
 	@BeforeMethod(alwaysRun=true)
 	public void initialize(){
-		driver.get(PropertyUtil.configMap.get("URL"));
-		driver.manage().window().maximize();
+		init(dataMap);
 		appStartPage = PageFactory.initElements(driver, AppStartPage.class);
 	}
 	
@@ -50,7 +65,7 @@ public class VerifyAppFlow extends TestBase{
 		myApplicationsPage.validateAppFlow(application,profile,epg);
 	}
 	
-	@AfterClass(alwaysRun=true)
+	@AfterMethod(alwaysRun=true)
 	public void logout() {
 		driver.quit();
 	}
