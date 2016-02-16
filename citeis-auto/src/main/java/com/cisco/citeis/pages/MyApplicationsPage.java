@@ -2,7 +2,6 @@ package com.cisco.citeis.pages;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,16 +9,14 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import atu.testng.reports.ATUReports;
-import atu.testng.reports.logging.LogAs;
-import atu.testng.selenium.reports.CaptureScreen;
-import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
-
 import com.cisco.citeis.actions.Element;
 import com.cisco.citeis.actions.Link;
 import com.cisco.citeis.common.ApplicationConstants;
+import com.cisco.citeis.customatu.reports.ATUReports;
+import com.cisco.citeis.customatu.reports.logging.LogAs;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 import com.cisco.citeis.util.CommonUtil;
-import com.cisco.citeis.util.LoggerUtil;
 
 public class MyApplicationsPage {
 
@@ -65,7 +62,7 @@ public class MyApplicationsPage {
 	 * @param expectedEPG
 	 */
 	public void validateAppFlow(String application,String expectedProfile,String expectedEPG) {
-		if (Element.verify("Application names table", appRows.get(0), driver)) {
+		if (appRows.size() != 0) {
 			List<Object> appData = CommonUtil.validateNamePresent(driver, application);
 			if((Boolean) appData.get(0)){
 				if(!CommonUtil.isOrderPending(Integer.parseInt(appData.get(2).toString()),application,driver)){

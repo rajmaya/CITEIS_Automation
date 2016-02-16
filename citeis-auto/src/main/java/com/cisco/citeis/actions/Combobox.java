@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import atu.testng.reports.ATUReports;
-import atu.testng.reports.logging.LogAs;
-import atu.testng.selenium.reports.CaptureScreen;
-import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
+import com.cisco.citeis.customatu.reports.ATUReports;
+import com.cisco.citeis.customatu.reports.logging.LogAs;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class Combobox {
 

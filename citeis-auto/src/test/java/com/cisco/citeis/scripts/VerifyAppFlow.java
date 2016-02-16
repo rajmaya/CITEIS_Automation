@@ -11,6 +11,8 @@ import org.testng.annotations.Factory;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.cisco.citeis.customatu.reports.listeners.ATUReportsListener;
+import com.cisco.citeis.customatu.reports.listeners.ConfigurationListener;
 import com.cisco.citeis.pages.AppStartPage;
 import com.cisco.citeis.testBase.TestBase;
 import com.cisco.citeis.util.DataProviderUtil.StaticProviderClass;
@@ -23,10 +25,7 @@ public class VerifyAppFlow extends TestBase{
 	@Factory(dataProvider="CiteisData",dataProviderClass=StaticProviderClass.class)
 	public VerifyAppFlow(Map<String, String> dataMap) {
 		this.dataMap=dataMap;
-		// TODO Auto-generated constructor stub
 	}
-	
-
 
 	@BeforeMethod(alwaysRun=true)
 	public void initialize(){

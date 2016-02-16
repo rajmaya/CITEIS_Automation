@@ -3,12 +3,18 @@
 <suite name="Application Flow" verbose="5">
 	<test name="Application Flow">
 		<classes>
-			<class name="com.cisco.citeis.scripts.VerifyAppFlow" >
-			<methods>
-					<include name="validateAppFlow" />
-			</methods>
+			<parameter name="application" value="fcs-test-qa" />
+			<parameter name="wrongapplication" value="fcs-test-qa1" />
+			<parameter name="profile" value="fcs-test" />
+			<parameter name="wrongprofile" value="fcs-test1" />
+			<parameter name="epg" value="stage-epg-wo" />
+			<parameter name="wrongepg" value="stage-epg-wo1" />
+			<class name="com.cisco.citeis.scripts.VerifyAppFlow">
+				<methods>
+					<include name="validateWrongApplication" />
+				</methods>
 			</class>
 		</classes>
 	</test>
-	
+
 </suite>

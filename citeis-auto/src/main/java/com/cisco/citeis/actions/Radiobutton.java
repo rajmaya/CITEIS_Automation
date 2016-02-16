@@ -8,10 +8,10 @@ import org.openqa.selenium.interactions.Mouse;
 import org.openqa.selenium.internal.Locatable;
 import org.testng.Assert;
 
-import atu.testng.reports.ATUReports;
-import atu.testng.reports.logging.LogAs;
-import atu.testng.selenium.reports.CaptureScreen;
-import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
+import com.cisco.citeis.customatu.reports.ATUReports;
+import com.cisco.citeis.customatu.reports.logging.LogAs;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class Radiobutton {
 	public static boolean select(String strLogicalName,WebElement element,WebDriver driver){

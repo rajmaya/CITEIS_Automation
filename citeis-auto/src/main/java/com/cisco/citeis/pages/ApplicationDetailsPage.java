@@ -10,14 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import atu.testng.reports.ATUReports;
-import atu.testng.reports.logging.LogAs;
-import atu.testng.selenium.reports.CaptureScreen;
-import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
-
 import com.cisco.citeis.actions.Element;
 import com.cisco.citeis.actions.Link;
 import com.cisco.citeis.common.ApplicationConstants;
+import com.cisco.citeis.customatu.reports.ATUReports;
+import com.cisco.citeis.customatu.reports.logging.LogAs;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class ApplicationDetailsPage {
 	

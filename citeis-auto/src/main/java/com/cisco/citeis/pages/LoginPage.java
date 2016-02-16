@@ -1,21 +1,6 @@
 package com.cisco.citeis.pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
-
-import atu.testng.reports.ATUReports;
-import atu.testng.reports.logging.LogAs;
-import atu.testng.selenium.reports.CaptureScreen;
-import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
-
-import com.cisco.citeis.actions.Button;
-import com.cisco.citeis.actions.Sync;
-import com.cisco.citeis.actions.TextBox;
-import com.cisco.citeis.common.ApplicationConstants;
 
 public class LoginPage {
 	

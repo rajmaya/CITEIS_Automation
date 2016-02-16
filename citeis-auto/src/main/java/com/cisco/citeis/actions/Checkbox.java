@@ -3,10 +3,10 @@ package com.cisco.citeis.actions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import atu.testng.reports.ATUReports;
-import atu.testng.reports.logging.LogAs;
-import atu.testng.selenium.reports.CaptureScreen;
-import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
+import com.cisco.citeis.customatu.reports.ATUReports;
+import com.cisco.citeis.customatu.reports.logging.LogAs;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
+import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class Checkbox {	
 	public static boolean check(String strLogicalName,WebElement element,WebDriver driver){
