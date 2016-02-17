@@ -7,23 +7,28 @@ import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Listeners;
 
 import com.cisco.citeis.actions.Sync;
 import com.cisco.citeis.customatu.reports.ATUReports;
+import com.cisco.citeis.customatu.reports.exceptions.ATUReporterException;
 import com.cisco.citeis.customatu.reports.listeners.ATUReportsListener;
 import com.cisco.citeis.customatu.reports.listeners.ConfigurationListener;
 import com.cisco.citeis.customatu.reports.listeners.MethodListener;
 import com.cisco.citeis.customatu.reports.logging.LogAs;
 import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
 import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
+import com.cisco.citeis.customatu.reports.utils.Directory;
 import com.cisco.citeis.customatu.reports.utils.Platform;
+import com.cisco.citeis.customatu.reports.utils.SettingsFile;
 import com.cisco.citeis.pages.AppStartPage;
 import com.cisco.citeis.pages.ApplicationDetailsPage;
 import com.cisco.citeis.pages.CurrentProfilePage;
 import com.cisco.citeis.pages.HomePage;
 import com.cisco.citeis.pages.MyApplicationsPage;
 import com.cisco.citeis.util.PropertyUtil;
+import com.cisco.citeis.util.SendMail;
 
 @Listeners({ ATUReportsListener.class, ConfigurationListener.class,
 		MethodListener.class })
@@ -93,5 +98,23 @@ public class TestBase {
 		return driver;
 		
 	}
-
+	@AfterSuite
+	public void afterExecution() throws ATUReporterException{
+	String resultPath = Directory.CURRENTDir+"\\results\\ATU Reporter\\Results\\"+Directory.RUNName+Directory.RUNDir.split("_")[1]+"\\"+"CurrentRun.html" ;
+	//int testno = SettingsFile.getHighestTestCaseNumber();
+	String[] arrayOfString1 = SettingsFile.get("passedList").split(";");
+	String[] arrayOfString2 = SettingsFile.get("failedList").split(";");
+	String[] arrayOfString3 = SettingsFile.get("skippedList").split(";");
+	int[] arrayOfInt1 = SettingsFile.getIntArrayFromStringArray(arrayOfString1);
+    int[] arrayOfInt2 = SettingsFile.getIntArrayFromStringArray(arrayOfString2);
+    int[] arrayOfInt3 = SettingsFile.getIntArrayFromStringArray(arrayOfString3);
+    int passed = arrayOfInt1[(arrayOfInt1.length)-1];
+    System.out.println("Array of passed  :"+passed);
+    int failed = arrayOfInt2[(arrayOfInt2.length)-1];
+    System.out.println("Array of failed  :"+failed);
+    int skipped = arrayOfInt3[(arrayOfInt3.length)-1];
+    System.out.println("Array of skipped  :"+skipped);
+    int totaltest = passed+failed+skipped;
+   	SendMail.sendReportToMail(resultPath, totaltest, passed, failed, skipped);
+    }
 }
