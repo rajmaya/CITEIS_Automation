@@ -24,6 +24,19 @@
 		</dependency>
 
 		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		
+
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.9.9</version>
@@ -53,11 +66,8 @@
 			<version>1.0</version>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>log4j</groupId> <artifactId>log4j</artifactId> 
+			<version>1.2.17</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -84,13 +94,9 @@
 		</dependency>
 
 
-		<!-- <dependency>
-			<groupId>atu</groupId>
-			<artifactId>atu.reports</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/ExtnLib/ATUReporter_Selenium_testNG_5.5_BETA.jar</systemPath>
-		</dependency> -->
+		<!-- <dependency> <groupId>atu</groupId> <artifactId>atu.reports</artifactId> 
+			<version>1.0</version> <scope>system</scope> <systemPath>${project.basedir}/ExtnLib/ATUReporter_Selenium_testNG_5.5_BETA.jar</systemPath> 
+			</dependency> -->
 	</dependencies>
 
 
