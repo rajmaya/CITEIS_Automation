@@ -41,4 +41,8 @@ Thumbs.db
 /.metadata
 /bin
 /results
+citeis-auto/results
+citeis-auto/target
+citeis-auto/test-output
 /RemoteSystemsTempFiles
+/CustomReporting
