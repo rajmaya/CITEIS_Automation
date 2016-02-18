@@ -8,10 +8,10 @@ import org.openqa.selenium.interactions.Mouse;
 import org.openqa.selenium.internal.Locatable;
 import org.testng.Assert;
 
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class Radiobutton {
 	public static boolean select(String strLogicalName,WebElement element,WebDriver driver){
@@ -23,27 +23,27 @@ public class Radiobutton {
 					try{
 						element.click();
 						blResult=true;
-						ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Selected "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Selected "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 				}
 				else{
-					ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			  }
 		}else{
 			
-			ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		
 		return blResult;
@@ -59,27 +59,27 @@ public class Radiobutton {
 					JavascriptExecutor javaScriptExecutor=((JavascriptExecutor)driver);
 					javaScriptExecutor.executeScript("arguments[0].click",element);
 					blResult=true;
-					ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Selected "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Selected "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 				catch(Exception e){
-					ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					Assert.fail(e.getMessage());
 				}
 			}
 			else{
-				ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}
 		else{
-			ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));;
+			CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));;
 		}
 		}catch(Exception e){
-			ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail(e.getMessage());
 		  }
 	}else{
 		
-		ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));;
+		CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));;
 	}
 		return blResult;
 	}
@@ -96,25 +96,25 @@ public class Radiobutton {
 					try{Thread.sleep(500);}catch(Exception e){}
 					mouse.mouseUp(((Locatable)element).getCoordinates());
 					blResult=true;
-					ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Selected "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Selected "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 				catch(Exception e){
-					ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					Assert.fail(e.getMessage());
 				}
 			}
 			else{
-				ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}
 		else{
-			ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 			}catch(Exception e){
 		  }
 	}else{
 		
-		ATUReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));;
+		CATReports.add("Selecting Value in "+strLogicalName+" radiobutton","To Select value in "+strLogicalName+" radiobutton","Unable to select value, "+strLogicalName+" radiobutton, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));;
 	}
 		return blResult;
 	}
@@ -127,23 +127,23 @@ public class Radiobutton {
 				try{
 					element.click();
 					blResult=true;
-					ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Verified value "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Verified value "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 				catch(Exception e){
-					ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					Assert.fail(e.getMessage());
 				}
 			}
 			else{
-				ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			  }
 		}else{
 			
-			ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton,element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton,element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}
@@ -156,21 +156,21 @@ public class Radiobutton {
 				try {
 					if (element.isSelected()) {
 						blResult = true;
-						ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Verified value "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Verified value "+strLogicalName+" radiobutton", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 				} catch (Exception e) {
-					ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					Assert.fail(e.getMessage());
 				}
 			} else {
-				ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			  }
 		}else{
-			ATUReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton,element is nulll", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying value in "+strLogicalName+" radiobutton","To Verify value in "+strLogicalName+" radiobutton","Unable to verify, "+strLogicalName+" radiobutton,element is nulll", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		
 		return blResult;

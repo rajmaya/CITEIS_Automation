@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Regression Suite" verbose="5">
+	<test name="Regression Test">
+		<classes>
+			<class name="com.cisco.citeis.scripts.VerifyAppFlow">
+				<methods>
+					<parameter name="application" value="fcs-test-qa" />
+					<parameter name="wrongapplication" value="fcs-test-qa1" />
+					<parameter name="profile" value="fcs-test" />
+					<parameter name="wrongprofile" value="fcs-test1" />
+					<parameter name="epg" value="stage-epg-wo" />
+					<parameter name="wrongepg" value="stage-epg-wo1" />
+
+				</methods>
+			</class>
+		</classes>
+		<groups>
+			<run>
+				<include name="FullTest" />
+			</run>
+		</groups>
+	</test>
+
+</suite>

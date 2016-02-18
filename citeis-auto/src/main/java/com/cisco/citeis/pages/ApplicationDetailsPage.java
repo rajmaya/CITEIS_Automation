@@ -10,13 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 import com.cisco.citeis.actions.Element;
 import com.cisco.citeis.actions.Link;
 import com.cisco.citeis.common.ApplicationConstants;
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class ApplicationDetailsPage {
 	
@@ -42,23 +42,23 @@ public class ApplicationDetailsPage {
 		boolean isProfilePresent = false;
 		if (validateApplicationsDetails(application)) {
 			if (profileNames.size() != 0) {
-				ATUReports.add("Checking the Profiles for displayed for <b>'"+application+"'<b>","Profiles are displayed",profileNames.size()+" Profiles are displayed",LogAs.PASSED, null);
+				CATReports.add("Checking the Profiles for displayed for <b>'"+application+"'<b>","Profiles are displayed",profileNames.size()+" Profiles are displayed",LogAs.PASSED, null);
 				for (WebElement profile : profileNames) {
 				String profileName = profile.getText();
 				if(profileName.equals(expectedProfile)){
 				 isProfilePresent = true;	
 				 Link.click("Profile", profile, driver);
-				 ATUReports.add("Clicking on profile '"+profileName,"Profile name should be clicked, Clicked on profile",profileName+" profile is clicked",LogAs.PASSED, null);
+				 CATReports.add("Clicking on profile '"+profileName,"Profile name should be clicked, Clicked on profile",profileName+" profile is clicked",LogAs.PASSED, null);
 				 break;
 				}
 				}
 			} else {
-				ATUReports.add("Checking the Profiles for displayed for <b>'"+ application + "'<b>", "Profiles are displayed","Profiles are not displayed for <b>'" + application+ "'<b>", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Checking the Profiles for displayed for <b>'"+ application + "'<b>", "Profiles are displayed","Profiles are not displayed for <b>'" + application+ "'<b>", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail("Profiles are not displayed for <b>'" + application+ "'<b>");
 			}
 		 }
 		if(!isProfilePresent){
-			ATUReports.add("Checking the profile name for '"+application+"'",expectedProfile,"Profile not present",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Checking the profile name for '"+application+"'",expectedProfile,"Profile not present",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail("'"+expectedProfile+"' Profile not present");
 		}
 		return PageFactory.initElements(driver, CurrentProfilePage.class);

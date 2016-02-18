@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class Listbox {
 	public static boolean selectItemByValue(String strLogicalName,WebElement element,String strValue,WebDriver driver){
@@ -24,28 +24,28 @@ public class Listbox {
 						Select sel = new Select(element);
 						sel.selectByVisibleText(strValue);
 						blResult=true;
-						ATUReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Selected "+strValue+" value "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Selected "+strValue+" value "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 					}
 					catch(Exception e){
-						ATUReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 
 				}
 				else{
-					ATUReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value,  "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value,  "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value,  "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value,  "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value in "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting "+strValue+" value in "+strLogicalName+" listbox","To Select "+strValue+" value in "+strLogicalName+" listbox","Unable to select "+strValue+" value in "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 
 		return blResult;
@@ -66,27 +66,27 @@ public class Listbox {
 						}
 
 						blResult=true;
-						ATUReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Selected "+strItems+" value "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Selected "+strItems+" value "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable to select "+strItems+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable to select "+strItems+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 
 				}
 				else{
-					ATUReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable select strItems value, "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable select strItems value, "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable select strItems value, "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable select strItems value, "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable to select "+strItems+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable to select "+strItems+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable to select strItems value in "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting "+strItems+" value in "+strLogicalName+" listbox","To Select "+strItems+" value in "+strLogicalName+" listbox","Unable to select strItems value in "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 
 
@@ -103,27 +103,27 @@ public class Listbox {
 						Select sel = new Select(element);
 						sel.selectByIndex(itemIndex);
 						blResult=true;
-						ATUReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Selected "+itemIndex+" value "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Selected "+itemIndex+" value "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 
 				}
 				else{
-					ATUReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting "+itemIndex+" value in "+strLogicalName+" listbox","To Select "+itemIndex+" value in "+strLogicalName+" listbox","Unable to select "+itemIndex+" value in "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}
@@ -138,27 +138,27 @@ public class Listbox {
 						Select sel = new Select(element);
 						sel.selectByIndex(1);
 						blResult=true;
-						ATUReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Selected first value in, "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Selected first value in, "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 
 				}
 				else{
-					ATUReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting first value in "+strLogicalName+" listbox","To Select first value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}
@@ -175,27 +175,27 @@ public class Listbox {
 						Select sel = new Select(element);
 						sel.selectByIndex(sel.getOptions().size());
 						blResult=true;
-						ATUReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Selected last value in, "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Selected last value in, "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 
 				}
 				else{
-					ATUReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting last value in "+strLogicalName+" listbox","To Select last value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		
 		return blResult;
@@ -214,27 +214,27 @@ public class Listbox {
 						index=getRandomIndex(sel.getOptions().size());
 						sel.selectByIndex(index);
 						blResult=true;
-						ATUReports.add("Selecting random value in "+strLogicalName+" listbox","To Select random value in "+strLogicalName+" listbox","Selected random value in, "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting random value in "+strLogicalName+" listbox","To Select random value in "+strLogicalName+" listbox","Selected random value in, "+strLogicalName+" listbox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 
 				}
 				else{
-					ATUReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in, "+strLogicalName+" listbox"+"/n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Selecting value in "+strLogicalName+" listbox","To Select value in "+strLogicalName+" listbox","Unable select value in "+strLogicalName+" listbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		
 		return blResult;

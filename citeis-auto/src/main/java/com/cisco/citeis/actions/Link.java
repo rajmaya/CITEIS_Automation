@@ -9,10 +9,10 @@ import org.openqa.selenium.interactions.Mouse;
 import org.openqa.selenium.internal.Locatable;
 import org.testng.Assert;
 
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 public class Link {
 	public static boolean click(String strLogicalName,WebElement element,WebDriver driver){
 		boolean blResult=false;
@@ -23,26 +23,26 @@ public class Link {
 					try{
 						element.click();
 						blResult=true;
-						ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link",strLogicalName+" link is clicked", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link",strLogicalName+" link is clicked", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}	
 				}
 				else{
-					ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}catch(Exception e){
-			ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail(e.getMessage());
 		}
 		}else{
-			ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail();
 		}
 		
@@ -58,26 +58,26 @@ public class Link {
 					try{
 						((JavascriptExecutor)driver).executeScript("arguments[0].click", element);
 						blResult=true;
-						ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link",strLogicalName+" link is clicked", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link",strLogicalName+" link is clicked", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}	
 				}
 				else{
-					ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
+				CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
 			}
 			}catch(Exception e){
-				ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		
 		return blResult;
@@ -95,26 +95,26 @@ public class Link {
 						try{Thread.sleep(500);}catch(Exception e){}
 						mouse.mouseUp(((Locatable)element).getCoordinates());
 						blResult=true;
-						ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link",strLogicalName+" link is clicked", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link",strLogicalName+" link is clicked", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}	
 				}
 				else{
-					ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
+				CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
 			}
 			}catch(Exception e){
-				ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Clicking "+strLogicalName+" link","To Click "+strLogicalName+" link","Unable to click "+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		
 		return blResult;
@@ -130,26 +130,26 @@ public class Link {
 						Mouse mouse=((HasInputDevices)driver).getMouse();
 						mouse.mouseMove(((Locatable)element).getCoordinates());
 						blResult=true;
-						ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Verified mouse over on"+strLogicalName+" link", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Verified mouse over on"+strLogicalName+" link", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}	
 				}
 				else{
-					ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
+				CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
 			}
 			}catch(Exception e){
-				ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on"+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on"+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		
 		return blResult;
@@ -165,26 +165,26 @@ public class Link {
 						Mouse mouse=((HasInputDevices)driver).getMouse();
 						mouse.mouseMove(((Locatable)element).getCoordinates());
 						try{Thread.sleep(inWait*1000);}catch(Exception e){}
-						ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Verified mouse over on"+strLogicalName+" link", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Verified mouse over on"+strLogicalName+" link", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 					catch(Exception e){
-						ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}	
 				}
 				else{
-					ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
+				CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
 			}
 			}catch(Exception e){
-				ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on"+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying mouse over on "+strLogicalName+" link","To Verify mouse over on "+strLogicalName+" link","Unable to verify mouse over on"+strLogicalName+" link, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		
 		return blResult;
@@ -198,20 +198,20 @@ public class Link {
 					String textValue=element.getText();
 					if(textValue.equalsIgnoreCase(strValue)){
 						blResult=true;
-						ATUReports.add("Verifying "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Verified value "+strLogicalName+" link", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Verifying "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Verified value "+strLogicalName+" link", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 				}
 				catch(Exception e){
-					ATUReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					Assert.fail(e.getMessage());
 				}	
 			}
 			else{
-				ATUReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify, "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify, "+strLogicalName+" link is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}
 		else{
-			ATUReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify, "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
+			CATReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify, "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));				
 		}
 		return blResult;
 	}
@@ -223,15 +223,15 @@ public static boolean verify(String strLogicalName, WebElement element,WebDriver
 		if(element.isDisplayed()){
 			try{
 				blResult=true;
-				ATUReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Verified value "+strLogicalName+" link", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Verified value "+strLogicalName+" link", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			catch(Exception e){
-				ATUReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify "+strLogicalName+" link"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}
 		else{
-			ATUReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify, "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying value in "+strLogicalName+" link","To Verify value in "+strLogicalName+" link","Unable to verify, "+strLogicalName+" link is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}

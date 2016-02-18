@@ -9,13 +9,13 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 import com.cisco.citeis.actions.Element;
 import com.cisco.citeis.actions.Link;
 import com.cisco.citeis.common.ApplicationConstants;
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 import com.cisco.citeis.util.CommonUtil;
 
 public class MyApplicationsPage {
@@ -74,7 +74,7 @@ public class MyApplicationsPage {
 				}
 			}
 		}else {
-			ATUReports.add("Checking the applications", application,"No applications are displayed in 'My Applications'",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Checking the applications", application,"No applications are displayed in 'My Applications'",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail("No applications are displayed in 'My Applications'");
 		}
 	}
@@ -83,7 +83,7 @@ public class MyApplicationsPage {
 	 * Method to verify if no applications are displayed for any login
 	 */
 	public void validateNoApplicationDisplayed(){
-		ATUReports.add("Validating if applications are not displayed", LogAs.INFO, null);
+		CATReports.add("Validating if applications are not displayed", LogAs.INFO, null);
 		Element.verify("Application", noAppDisplay, driver); 
 	}
 
@@ -101,7 +101,7 @@ public class MyApplicationsPage {
 				}
 			}
 		}else {
-			ATUReports.add("Checking the applications", application,"No applications are displayed in 'My Applications'",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Checking the applications", application,"No applications are displayed in 'My Applications'",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail("No applications are displayed in 'My Applications'");
 		}
 		

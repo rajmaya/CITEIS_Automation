@@ -9,13 +9,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 import com.cisco.citeis.actions.Link;
 import com.cisco.citeis.actions.Sync;
 import com.cisco.citeis.common.ApplicationConstants;
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class CommonUtil {
 	
@@ -34,7 +34,7 @@ public class CommonUtil {
 					appData.add(0, true);
 					appData.add(1, appName);
 					appData.add(2, i);
-					ATUReports.add("Checking the application name in 'My Applications'",expectedName,appName.getText(),LogAs.PASSED, null);
+					CATReports.add("Checking the application name in 'My Applications'",expectedName,appName.getText(),LogAs.PASSED, null);
 					break;
 				}
 				i++;
@@ -48,7 +48,7 @@ public class CommonUtil {
 		}
 		
 		if(!(Boolean) appData.get(0)){
-			ATUReports.add("Checking the application name in 'My Applications'",expectedName,"Application not present",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Checking the application name in 'My Applications'",expectedName,"Application not present",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail("'"+expectedName+"' Application not present");
 		}
 		
@@ -67,11 +67,11 @@ public class CommonUtil {
 			className = appRow.findElement(ApplicationConstants.appPendingBtn).getAttribute("class");
 		}
 		if(className.equals("ng-scope inProgress")){
-			ATUReports.add("Checking the Application Approval status","Application "+appName+" should be approved","Application Order for <b>'"+appName+"'</b> is still pending for approval", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Checking the Application Approval status","Application "+appName+" should be approved","Application Order for <b>'"+appName+"'</b> is still pending for approval", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail("Application Order for <b>'"+appName+"'</b> is still pending for approval");
 		}else {
 			isPending = false;
-			ATUReports.add("Checking the Application Approval status","Application "+appName+" should be approved","Application Order for <b>'"+appName+"'</b> is approved", LogAs.PASSED, null);
+			CATReports.add("Checking the Application Approval status","Application "+appName+" should be approved","Application Order for <b>'"+appName+"'</b> is approved", LogAs.PASSED, null);
 		}
 		return isPending;
 	}
