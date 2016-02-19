@@ -23,7 +23,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="ExtnLib/CustomReport.jar"/>
 	<classpathentry kind="lib" path="ExtnLib/apache-commons-net.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CustomReport"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
