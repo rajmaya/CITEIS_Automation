@@ -10,18 +10,18 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Listeners;
 
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.exceptions.CATReporterException;
+import com.cisco.cat.reports.listeners.CATReportsListener;
+import com.cisco.cat.reports.listeners.ConfigurationListener;
+import com.cisco.cat.reports.listeners.MethodListener;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
+import com.cisco.cat.reports.utils.Directory;
+import com.cisco.cat.reports.utils.Platform;
+import com.cisco.cat.reports.utils.SettingsFile;
 import com.cisco.citeis.actions.Sync;
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.exceptions.ATUReporterException;
-import com.cisco.citeis.customatu.reports.listeners.ATUReportsListener;
-import com.cisco.citeis.customatu.reports.listeners.ConfigurationListener;
-import com.cisco.citeis.customatu.reports.listeners.MethodListener;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
-import com.cisco.citeis.customatu.reports.utils.Directory;
-import com.cisco.citeis.customatu.reports.utils.Platform;
-import com.cisco.citeis.customatu.reports.utils.SettingsFile;
 import com.cisco.citeis.pages.AppStartPage;
 import com.cisco.citeis.pages.ApplicationDetailsPage;
 import com.cisco.citeis.pages.CurrentProfilePage;
@@ -30,11 +30,12 @@ import com.cisco.citeis.pages.MyApplicationsPage;
 import com.cisco.citeis.util.PropertyUtil;
 import com.cisco.citeis.util.SendMail;
 
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
+@Listeners({ CATReportsListener.class, ConfigurationListener.class,
 		MethodListener.class })
-public class TestBase {
+public class TestBase{
 
 	protected static WebDriver driver;
+	public String suiteName;
 	public static String username, password;
 	public HomePage homePage;
 	public AppStartPage appStartPage;
@@ -44,11 +45,10 @@ public class TestBase {
 	//Logger log = LoggerUtil.getLogger(getClass().getSimpleName());
 
 	{
-		System.setProperty("atu.reporter.config", "props" + File.separator
-				+ "atu.properties");
+		System.setProperty("cat.reporter.config", "props" + File.separator
+				+ "cat.properties");
 	}
 
-	
 	
 	public WebDriver init(Map<String,String>dataMap) {
 
@@ -78,29 +78,30 @@ public class TestBase {
 			else if(browserName.equalsIgnoreCase("SAFARI")){
 				capability=DesiredCapabilities.safari();
 			}
-			//driver=new RemoteWebDriver(url,capability);
 			driver = new RemoteWebDriver(url, capability);
-			ATUReports.setWebDriver(driver);
-			ATUReports.add("Browser is launched", LogAs.PASSED, null);
-			driver.get(strUrl);
-			Sync.waitForSeconds(5,driver);
+			CATReports.setWebDriver(driver);
+			CATReports.add("Browser is launched", LogAs.PASSED, null);
+			
 			driver.manage().window().maximize();
 			Sync.waitForSeconds(5,driver);
-			
-			
+			//Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\inputs\\autoiteg.exe");
+			Sync.waitForSeconds(5,driver);
+     		driver.get(strUrl);
+			Sync.waitForSeconds(5,driver);
 			
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
-			ATUReports.add("Browser is not launched \n " + e.getMessage(),
+			CATReports.add("Browser is not launched \n " + e.getMessage(),
 					LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return driver;
 		
 	}
-	@AfterSuite
-	public void afterExecution() throws ATUReporterException{
-	String resultPath = Directory.CURRENTDir+"\\results\\ATU Reporter\\Results\\"+Directory.RUNName+Directory.RUNDir.split("_")[1]+"\\"+"CurrentRun.html" ;
+	
+	@AfterSuite(alwaysRun=true)
+	public void afterExecution() throws CATReporterException{
+	String resultPath = Directory.CURRENTDir+"\\results\\CAT Reporter\\Results\\"+Directory.RUNName+Directory.RUNDir.split("_")[1]+"\\"+"CurrentRun.html" ;
 	//int testno = SettingsFile.getHighestTestCaseNumber();
 	String[] arrayOfString1 = SettingsFile.get("passedList").split(";");
 	String[] arrayOfString2 = SettingsFile.get("failedList").split(";");
@@ -117,4 +118,5 @@ public class TestBase {
     int totaltest = passed+failed+skipped;
    	SendMail.sendReportToMail(resultPath, totaltest, passed, failed, skipped);
     }
+	
 }

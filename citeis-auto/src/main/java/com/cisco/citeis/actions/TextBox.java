@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 
 public class TextBox {
 	
@@ -21,28 +21,28 @@ public class TextBox {
 					try{
 						element.sendKeys(strValue);
 						blResult=true;
-						ATUReports.add("Entering value in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" TextBox","Entered in "+strLogicalName+" TextBox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE)); 
+						CATReports.add("Entering value in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" TextBox","Entered in "+strLogicalName+" TextBox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE)); 
 					}
 					catch(Exception e){
-						ATUReports.add("Entering value in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox"+ "\n"+"Exception occurred:"+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Entering value in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox"+ "\n"+"Exception occurred:"+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}				
 				}
 				else{
-					ATUReports.add("Entering value in "+strLogicalName+"Textbox is disabled","To Enter in "+strLogicalName+" Textbox","Unable to Enter in,  "+strLogicalName+" Textbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Entering value in "+strLogicalName+"Textbox is disabled","To Enter in "+strLogicalName+" Textbox","Unable to Enter in,  "+strLogicalName+" Textbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 				}
 			}
 			else{
 				
-				ATUReports.add("Entering value in "+strLogicalName+"Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Entering value in "+strLogicalName+"Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}catch(Exception e){
-			ATUReports.add("Entering in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" Testbox","Unable to Enter in, "+strLogicalName+" Textbox"+ "\n"+ "Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Entering in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" Testbox","Unable to Enter in, "+strLogicalName+" Textbox"+ "\n"+ "Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail(e.getMessage());
 		}
 		}else{
-			ATUReports.add("Entering value in "+strLogicalName+"Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Entering value in "+strLogicalName+"Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}	
@@ -58,29 +58,29 @@ public class TextBox {
 						String textValue=element.getAttribute("value");
 						if(textValue.equalsIgnoreCase(strValue)){
 							blResult=true;
-							ATUReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Verified value "+strLogicalName+" TextBox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+							CATReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Verified value "+strLogicalName+" TextBox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						}
 					}
 					catch(Exception e){
-						ATUReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 
 				}
 				else{
-					ATUReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());	
 			}
 		}else{
 
-			ATUReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox,element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying value in "+strLogicalName+" Textbox","To Verify value in "+strLogicalName+" TextBox","Unable to verify, "+strLogicalName+" Textbox,element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}
@@ -97,7 +97,7 @@ public class TextBox {
 
 					}
 					catch(Exception e){
-						ATUReports.add("Clearing value "+strLogicalName+" Textbox","To Clear value in "+strLogicalName+" TextBox","Unable to Clear, "+strLogicalName+" Textbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clearing value "+strLogicalName+" Textbox","To Clear value in "+strLogicalName+" TextBox","Unable to Clear, "+strLogicalName+" Textbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}
 
@@ -108,7 +108,7 @@ public class TextBox {
 			else{
 			}
 		}catch(Exception e){
-			ATUReports.add("Clearing value "+strLogicalName+" Textbox","To Clear value in "+strLogicalName+" TextBox","Unable to Clear, "+strLogicalName+" Textbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Clearing value "+strLogicalName+" Textbox","To Clear value in "+strLogicalName+" TextBox","Unable to Clear, "+strLogicalName+" Textbox"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail(e.getMessage());
 		}
 		}
@@ -126,30 +126,30 @@ public class TextBox {
 						javascriptExecutor.executeScript("arguments[0].value=arguments[1]", element,strValue);
 						element.sendKeys(strValue);
 						blResult=true;
-						ATUReports.add("Entered value in "+strLogicalName+" Textbox","To Enter value in "+strLogicalName+" TextBox","Entered value "+strLogicalName+" TextBox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Entered value in "+strLogicalName+" Textbox","To Enter value in "+strLogicalName+" TextBox","Entered value "+strLogicalName+" TextBox", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 					}
 					catch(Exception e){
-						ATUReports.add("Entering value in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox"+ "\n"+"Exception occurred:"+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Entering value in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox"+ "\n"+"Exception occurred:"+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						Assert.fail(e.getMessage());
 					}				
 				}
 				else{
 					
-					ATUReports.add("Entering value in "+strLogicalName+"Textbox is disabled","To Enter in "+strLogicalName+" Textbox","Unable to Enter in,  "+strLogicalName+" Textbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Entering value in "+strLogicalName+"Textbox is disabled","To Enter in "+strLogicalName+" Textbox","Unable to Enter in,  "+strLogicalName+" Textbox is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 				}
 			}
 			else{
 
-				ATUReports.add("Entering value in "+strLogicalName+"Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Entering value in "+strLogicalName+"Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}catch(Exception e){
-			ATUReports.add("Entering value in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox"+ "\n"+"Exception occurred:"+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Entering value in "+strLogicalName+" Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox"+ "\n"+"Exception occurred:"+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			Assert.fail(e.getMessage());	
 	       }
 		}else{
-			ATUReports.add("Entering value in "+strLogicalName+"Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Entering value in "+strLogicalName+"Textbox","To Enter in "+strLogicalName+" Textbox","Unable to Enter in, "+strLogicalName+" Textbox, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}

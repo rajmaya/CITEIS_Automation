@@ -3,20 +3,18 @@ package com.cisco.citeis.scripts;
 import java.util.Map;
 
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterClass;
+import org.testng.ISuite;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.cisco.citeis.customatu.reports.listeners.ATUReportsListener;
-import com.cisco.citeis.customatu.reports.listeners.ConfigurationListener;
+import com.cisco.cat.reports.exceptions.CATReporterException;
 import com.cisco.citeis.pages.AppStartPage;
 import com.cisco.citeis.testBase.TestBase;
 import com.cisco.citeis.util.DataProviderUtil.StaticProviderClass;
-import com.cisco.citeis.util.PropertyUtil;
 
 public class VerifyAppFlow extends TestBase{
 	
@@ -29,29 +27,30 @@ public class VerifyAppFlow extends TestBase{
 
 	@BeforeMethod(alwaysRun=true)
 	public void initialize(){
+		//suiteName = suite.getName();
 		init(dataMap);
 		appStartPage = PageFactory.initElements(driver, AppStartPage.class);
 	}
 	
-	@Test(groups={"SanityTest","ExtendedSanityTest"})
+	@Test(groups={"SanityTest","ExtendedSanityTest","FullTest"})
 	@Parameters({"application","profile","epg"})
 	public void validatePositiveFlow(String application,String profile,String epg) {
 		validateFlow(application, profile, epg);
 	}
 	
-	@Test(groups={"SanityTest","ExtendedSanityTest"})
+	@Test(groups={"SanityTest","ExtendedSanityTest","FullTest"})
 	@Parameters({"wrongapplication","profile","epg"})
 	public void validateWrongApplication(String application,String profile,String epg) {
 		validateFlow(application, profile, epg);
 	}
 	
-	@Test(groups={"ExtendedSanityTest"})
+	@Test(groups={"ExtendedSanityTest","FullTest"})
 	@Parameters({"application","wrongprofile","epg"})
 	public void validateWrongProfile(String application,String profile,String epg) {
 		validateFlow(application, profile, epg);
 	}
 	
-	@Test(groups={"ExtendedSanityTest"})
+	@Test(groups={"FullTest"})
 	@Parameters({"application","profile","wrongepg"})
 	public void validateWrongEPG(String application,String profile,String epg) {
 		validateFlow(application, profile, epg);
@@ -68,5 +67,5 @@ public class VerifyAppFlow extends TestBase{
 	public void logout() {
 		driver.quit();
 	}
-
+	
 }

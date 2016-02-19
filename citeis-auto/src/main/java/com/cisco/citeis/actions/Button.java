@@ -8,10 +8,10 @@ import org.openqa.selenium.interactions.Mouse;
 import org.openqa.selenium.internal.Locatable;
 import org.testng.Assert;
 
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 public class Button {
 	public static boolean click(String strLogicalName,WebElement element,WebDriver driver){
 		boolean blResult=false;
@@ -21,21 +21,21 @@ public class Button {
 				if(element.isEnabled()){
 					element.click();
 					blResult=true;
-					ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Clicked "+strLogicalName+" Button", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Clicked "+strLogicalName+" Button", LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 				else{
-					ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  "+strLogicalName+" Button is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  "+strLogicalName+" Button is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 			else{
-				ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click, "+strLogicalName+" Button is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click, "+strLogicalName+" Button is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click "+strLogicalName+" Button \n Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click "+strLogicalName+" Button \n Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
-			ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click "+strLogicalName+" Button, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click "+strLogicalName+" Button, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}
@@ -59,18 +59,18 @@ public class Button {
 						}
 						mouse.mouseUp(((Locatable) element).getCoordinates());
 						blResult = true;
-						ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Clicked " + strLogicalName + " Button",	LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Clicked " + strLogicalName + " Button",	LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					} else {
-						ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is disabled", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is disabled", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 				} else {
-					ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			} catch (Exception e) {
-				ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName + " Button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName + " Button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		} else {
-			ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName+ " Button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName+ " Button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}
@@ -84,18 +84,18 @@ public class Button {
 						((JavascriptExecutor) driver).executeScript(
 								"arguments[0].click", element);
 						blResult = true;
-						ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Clicked " + strLogicalName + " Button",LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Clicked " + strLogicalName + " Button",LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					} else {
-						ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is disabled", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is disabled", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 				} else {
-					ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			} catch (Exception e) {
-				ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName + " Button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName + " Button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		} else {
-			ATUReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName+ " Button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName+ " Button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
    }
@@ -107,13 +107,13 @@ public class Button {
 				String btnName = element.getText();
 				if (btnName.equalsIgnoreCase(strValue)) {
 					blResult = true;
-					ATUReports.add("Verifying Text of " + strLogicalName + " Button",strValue, btnName, LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying Text of " + strLogicalName + " Button",strValue, btnName, LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			} else {
-				ATUReports.add("Verifying Text of " + strLogicalName+ " button, Element is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying Text of " + strLogicalName+ " button, Element is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		} catch (Exception e) {
-			ATUReports.add("Verifying Text of " + strLogicalName + " Button",strValue,"Unable to verify " + strLogicalName + " button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying Text of " + strLogicalName + " Button",strValue,"Unable to verify " + strLogicalName + " button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}
@@ -124,16 +124,16 @@ public class Button {
 			try {
 				if (element.isDisplayed()) {
 					blResult = true;
-					ATUReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Verified " + strLogicalName + " Button",LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Verified " + strLogicalName + " Button",LogAs.PASSED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 
 				} else {
-					ATUReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify, " + strLogicalName+ " button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify, " + strLogicalName+ " button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			} catch (Exception e) {
-				ATUReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify " + strLogicalName + " button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify " + strLogicalName + " button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		} else {
-			ATUReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify, " + strLogicalName+ " button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify, " + strLogicalName+ " button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}

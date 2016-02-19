@@ -10,16 +10,16 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import com.cisco.cat.reports.CATReports;
+import com.cisco.cat.reports.logging.LogAs;
+import com.cisco.cat.reports.sel.CaptureScreen;
+import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 import com.cisco.citeis.actions.Button;
 import com.cisco.citeis.actions.Element;
 import com.cisco.citeis.actions.Link;
 import com.cisco.citeis.actions.Sync;
 import com.cisco.citeis.actions.TextBox;
 import com.cisco.citeis.common.ApplicationConstants;
-import com.cisco.citeis.customatu.reports.ATUReports;
-import com.cisco.citeis.customatu.reports.logging.LogAs;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen;
-import com.cisco.citeis.customatu.reports.sel.CaptureScreen.ScreenshotOf;
 import com.cisco.citeis.util.CommonUtil;
 
 public class CurrentProfilePage {
@@ -85,7 +85,7 @@ public class CurrentProfilePage {
 				for(WebElement epg : tableRows){
 					epgs.append(epg.getText()+",");
 				}
-				ATUReports.add("Validating if EPGs are displaying","EPGs are displayed in "+expectedProfile,epgs.substring(0, epgs.length()-1)+" EPGs are displayed for <b>'"+expectedProfile+"'</b>",LogAs.PASSED, null);
+				CATReports.add("Validating if EPGs are displaying","EPGs are displayed in "+expectedProfile,epgs.substring(0, epgs.length()-1)+" EPGs are displayed for <b>'"+expectedProfile+"'</b>",LogAs.PASSED, null);
 				Link.click("Current Profile", currentProfileTab, driver);
 				Link.click("Instance", instanceLink, driver);
 				Sync.waitForSeconds(3, driver);
@@ -94,13 +94,13 @@ public class CurrentProfilePage {
 					for(WebElement instance : tableRows){
 						instances.append(instance.getText()+",");
 					}
-					ATUReports.add("Validating if Instances are displaying","Instances are displayed in "+expectedProfile,instances.substring(0, instances.length()-1)+" are displayed for <b>'"+expectedProfile+"'<b>",LogAs.PASSED, null);
+					CATReports.add("Validating if Instances are displaying","Instances are displayed in "+expectedProfile,instances.substring(0, instances.length()-1)+" are displayed for <b>'"+expectedProfile+"'<b>",LogAs.PASSED, null);
 				}else{
-					ATUReports.add("Validating if Instances are displaying","Instances are displayed in "+expectedProfile,"Instances are not displayed for profile <b>'"+expectedProfile+"'<b>",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Validating if Instances are displaying","Instances are displayed in "+expectedProfile,"Instances are not displayed for profile <b>'"+expectedProfile+"'<b>",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					Assert.fail("Instances are not displayed for profile <b>'"+expectedProfile+"'<b>");
 				}
 			}else{
-				ATUReports.add("Validating if EPGs are displaying","EPGs are displayed in "+expectedProfile,"EPGs are not displayed for profile <b>'"+expectedProfile+"'<b>",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Validating if EPGs are displaying","EPGs are displayed in "+expectedProfile,"EPGs are not displayed for profile <b>'"+expectedProfile+"'<b>",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail("EPGs are not displayed for profile <b>'"+expectedProfile+"'<b>");
 			}
 		}
@@ -133,17 +133,17 @@ public class CurrentProfilePage {
 					Sync.waitForObject(driver, "EPG Table", tableRows.get(0), 20);
 					List<Object> appData = CommonUtil.validateNamePresent(driver, data.get("EPG Name"));
 					if((Boolean) appData.get(0)){
-						ATUReports.add("Checking if given EPG has been created","EPG with name "+data.get("EPG Name")+" should be created","EPG with name "+data.get("EPG Name")+" has been created",LogAs.PASSED, null);
+						CATReports.add("Checking if given EPG has been created","EPG with name "+data.get("EPG Name")+" should be created","EPG with name "+data.get("EPG Name")+" has been created",LogAs.PASSED, null);
 						if(!CommonUtil.isOrderPending(Integer.parseInt(appData.get(2).toString()),data.get("EPG Name"), driver)){
-							ATUReports.add("Checking if given EPG creation is done","EPG with name "+data.get("EPG Name")+" should be created","EPG with name "+data.get("EPG Name")+" has been created",LogAs.PASSED, null);
+							CATReports.add("Checking if given EPG creation is done","EPG with name "+data.get("EPG Name")+" should be created","EPG with name "+data.get("EPG Name")+" has been created",LogAs.PASSED, null);
 						}/*else{
 							ATUReports.add("Checking if given EPG creation is done","EPG with name "+data.get("EPG Name")+" should be created","EPG with name "+data.get("EPG Name")+" is still in pending",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 						}*/
 					}else{
-						ATUReports.add("Checking if given EPG has been created","EPG with name "+data.get("EPG Name")+" should be created","EPG with name "+data.get("EPG Name")+" has not been created",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+						CATReports.add("Checking if given EPG has been created","EPG with name "+data.get("EPG Name")+" should be created","EPG with name "+data.get("EPG Name")+" has not been created",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 				}else{
-					ATUReports.add("Checking the EPG PopUp Header Title","Create EPG",popUpHeader.getText(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Checking the EPG PopUp Header Title","Create EPG",popUpHeader.getText(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 		}
@@ -163,9 +163,9 @@ public class CurrentProfilePage {
 				Sync.waitForObject(driver, "EPG Table", tableRows.get(0), 20);
 				appData = CommonUtil.validateNamePresent(driver, data.get("EPG Name"));
 				if(!(Boolean) appData.get(0)){
-					ATUReports.add("Checking if given EPG has been deleted","EPG with name "+data.get("EPG Name")+" should be deleted","EPG with name "+data.get("EPG Name")+" has been deleted",LogAs.PASSED, null);
+					CATReports.add("Checking if given EPG has been deleted","EPG with name "+data.get("EPG Name")+" should be deleted","EPG with name "+data.get("EPG Name")+" has been deleted",LogAs.PASSED, null);
 				}else{
-					ATUReports.add("Checking if given EPG has been deleted","EPG with name "+data.get("EPG Name")+" should be deleted","EPG with name "+data.get("EPG Name")+" has not been deleted",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+					CATReports.add("Checking if given EPG has been deleted","EPG with name "+data.get("EPG Name")+" should be deleted","EPG with name "+data.get("EPG Name")+" has not been deleted",LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			}
 		}
