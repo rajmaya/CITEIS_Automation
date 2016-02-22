@@ -23,12 +23,14 @@ import com.cisco.cat.reports.exceptions.CATReporterStepFailedException;
 import com.cisco.cat.reports.utils.Attributes;
 import com.cisco.cat.reports.utils.Directory;
 import com.cisco.cat.reports.utils.Platform;
+import com.cisco.cat.reports.utils.SendMail;
 import com.cisco.cat.reports.utils.SettingsFile;
 import com.cisco.cat.reports.writers.ConsolidatedReportsPageWriter;
 import com.cisco.cat.reports.writers.CurrentRunPageWriter;
 import com.cisco.cat.reports.writers.HTMLDesignFilesJSWriter;
 import com.cisco.cat.reports.writers.IndexPageWriter;
 import com.cisco.cat.reports.writers.TestCaseReportsPageWriter;
+import com.cisco.cat.reports.*;
 
 public class CATReportsListener
   implements ITestListener, IExecutionListener, IReporter, ISuiteListener
@@ -164,6 +166,9 @@ public void onStart(ITestContext paramITestContext) {
       startReportingForPassed(this.passedTests);
       startReportingForFailed(this.failedTests);
       startReportingForSkipped(this.skippedTests);
+      int totaltest=this.passedTests.size()+this.failedTests.size()+this.skippedTests.size();
+      SendMail.sendReportToMail(totaltest, this.passedTests.size(), this.failedTests.size(),this.skippedTests.size());
+      
       if (Directory.generateExcelReports) {
         //ExcelReports.generateExcelReport(Directory.RUNDir + Directory.SEP + "(" + Directory.REPORTSDIRName + ") " + Directory.RUNName + this.runCount + ".xlsx", this.passedTests, this.failedTests, this.skippedTests);
       }
@@ -323,9 +328,9 @@ public void onStart(ITestContext paramITestContext) {
   {
     PrintWriter localPrintWriter = null;
     Iterator localIterator = paramList.iterator();
-    for (;;)
-    {
-      if (localIterator.hasNext())
+   // for (;;)
+   // {
+      while (localIterator.hasNext())
       {
         ITestResult localITestResult = (ITestResult)localIterator.next();
         String str = localITestResult.getAttribute("reportDir").toString();
@@ -357,16 +362,16 @@ public void onStart(ITestContext paramITestContext) {
           }
         }
       }
-    }
+    //}
   }
   
   public void startReportingForSkipped(List<ITestResult> paramList)
   {
     PrintWriter localPrintWriter = null;
     Iterator localIterator = paramList.iterator();
-    for (;;)
-    {
-      if (localIterator.hasNext())
+    //for (;;)
+    //{
+      while (localIterator.hasNext())
       {
         ITestResult localITestResult = (ITestResult)localIterator.next();
         String str = localITestResult.getAttribute("reportDir").toString();
@@ -402,7 +407,7 @@ public void onStart(ITestContext paramITestContext) {
           }
         }
       }
-    }
+    //}
   }
   
   public void onExecutionFinish()
