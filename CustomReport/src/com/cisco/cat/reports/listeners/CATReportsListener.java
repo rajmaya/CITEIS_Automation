@@ -22,6 +22,7 @@ import com.cisco.cat.reports.exceptions.CATReporterException;
 import com.cisco.cat.reports.exceptions.CATReporterStepFailedException;
 import com.cisco.cat.reports.utils.Attributes;
 import com.cisco.cat.reports.utils.Directory;
+import com.cisco.cat.reports.utils.FTPConnect;
 import com.cisco.cat.reports.utils.Platform;
 import com.cisco.cat.reports.utils.SendMail;
 import com.cisco.cat.reports.utils.SettingsFile;
@@ -167,8 +168,10 @@ public void onStart(ITestContext paramITestContext) {
       startReportingForFailed(this.failedTests);
       startReportingForSkipped(this.skippedTests);
       int totaltest=this.passedTests.size()+this.failedTests.size()+this.skippedTests.size();
+      String strLocalPath = Directory.CURRENTDir+"\\results";
+      FTPConnect.uploadToFTP("10.197.64.122", "anonymous", "anonymous", "/Gopal/results", strLocalPath);
       SendMail.sendReportToMail(totaltest, this.passedTests.size(), this.failedTests.size(),this.skippedTests.size());
-      
+     
       if (Directory.generateExcelReports) {
         //ExcelReports.generateExcelReport(Directory.RUNDir + Directory.SEP + "(" + Directory.REPORTSDIRName + ") " + Directory.RUNName + this.runCount + ".xlsx", this.passedTests, this.failedTests, this.skippedTests);
       }

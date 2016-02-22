@@ -99,8 +99,8 @@ public class TestBase{
 		
 	}
 	
-	@AfterSuite(alwaysRun=true)
-	public void afterExecution() throws CATReporterException{
+	
+	/*public void afterExecution() throws CATReporterException{
 	String resultPath = Directory.CURRENTDir+"\\results\\CAT Reporter\\Results\\"+Directory.RUNName+Directory.RUNDir.split("_")[1]+"\\"+"CurrentRun.html" ;
 	//int testno = SettingsFile.getHighestTestCaseNumber();
 	String[] arrayOfString1 = SettingsFile.get("passedList").split(";");
@@ -116,7 +116,7 @@ public class TestBase{
     int skipped = arrayOfInt3[(arrayOfInt3.length)-1];
     System.out.println("Array of skipped  :"+skipped);
     int totaltest = passed+failed+skipped;
-   	SendMail.sendReportToMail(resultPath, totaltest, passed, failed, skipped);
-    }
+   	//SendMail.sendReportToMail(resultPath, totaltest, passed, failed, skipped);
+    }*/
 	
 }

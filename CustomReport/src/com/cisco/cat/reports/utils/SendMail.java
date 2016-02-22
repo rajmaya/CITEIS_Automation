@@ -17,7 +17,8 @@ import java.util.Properties;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
-import javax.mail.Address;
+
+/*import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -26,6 +27,18 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;*/
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
@@ -57,12 +70,14 @@ public class SendMail {
 
 
 		Session session = Session.getInstance(properties,
-				new javax.mail.Authenticator() {
+				new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(from, "renault@1234");
 			}
 		});
 		try{
+			
+			String strResultpath = "ftp:\\10.197.64.122\\Gopal\\results\\CAT%20Reporter\\Results\\"+Directory.RUNName+Directory.RUNDir.split("_")[1]+"\\"+"CurrentRun.html";
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(from));
 			message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
@@ -70,7 +85,7 @@ public class SendMail {
                     InternetAddress.parse("majampan@cisco.com,udondeti@cisco.com,pponguru@cisco.com,ramyselv@cisco.com"));
 			message.setSubject("Citeis Execution status report");
 			MimeBodyPart messageBodyPart = new MimeBodyPart();
-			String html = " \n <html><head>  <title>CITEIS Automation report</title></head><body>  <p>Please find the report below</p>  <table border = 1>    <tr>      <th>Total No</th><th>Passed</th><th>Failed</th><th>Skipped</th>    </tr>    <tr>      <td>"+tno+"</td><td>"+passed+"</td><td>"+failed+"</td><td>"+skipped+"</td>    </tr>     </table><p>Click below link to view the result <br><br> Thanks, <br> CITIES Automation Team</p></body></html>"; 
+			String html = " \n <html><head>  <title>CITEIS Automation report</title></head><body>  <p>Please find the report below</p>  <table border = 1>    <tr>      <th>Total No</th><th>Passed</th><th>Failed</th><th>Skipped</th>    </tr>    <tr>      <td>"+tno+"</td><td>"+passed+"</td><td>"+failed+"</td><td>"+skipped+"</td>    </tr>     </table><p>Click on following link to view the result <a href= "+strResultpath+">Click Here</a> <br><br> Thanks, <br> CITIES Automation Team</p></body></html>"; 
 			messageBodyPart.setContent(html, "text/html");
 			Multipart multipart = new MimeMultipart();
 			multipart.addBodyPart(messageBodyPart);
