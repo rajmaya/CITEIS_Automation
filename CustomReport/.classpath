@@ -8,5 +8,8 @@
 	<classpathentry kind="lib" path="ExtnLib/selenium-java-2.52.0.jar"/>
 	<classpathentry kind="lib" path="ExtnLib/selenium-server-standalone-2.50.1.jar"/>
 	<classpathentry kind="lib" path="ExtnLib/testng-6.9.9.jar"/>
+	<classpathentry kind="lib" path="ExtnLib/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="ExtnLib/mail-1.4.7.jar"/>
+	<classpathentry kind="lib" path="ExtnLib/apache-commons-net.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -65,9 +65,9 @@ public static Iterator<Object[]> getTestData(String strWorkbookPath,String strWo
 			}else if(rowMap.containsKey("EXECUTE")){
 				if(rowMap.get("EXECUTE").equalsIgnoreCase("Yes"))
 					data.add(new Object[]{rowMap});
-			}else{
+			}/*else{
 				data.add(new Object[]{rowMap});
-			}
+			}*/
 			//}
 		}
 		file.close();

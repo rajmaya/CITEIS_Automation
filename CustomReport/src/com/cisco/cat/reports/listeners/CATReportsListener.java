@@ -170,6 +170,9 @@ public void onStart(ITestContext paramITestContext) {
       int totaltest=this.passedTests.size()+this.failedTests.size()+this.skippedTests.size();
       String strLocalPath = Directory.CURRENTDir+"\\results";
       FTPConnect.uploadToFTP("10.197.64.122", "anonymous", "anonymous", "/Gopal/results", strLocalPath);
+      SendMail.passedTests = this.passedTests;
+      SendMail.failedTests = this.failedTests;
+      SendMail.skippedTests = this.skippedTests;
       SendMail.sendReportToMail(totaltest, this.passedTests.size(), this.failedTests.size(),this.skippedTests.size());
      
       if (Directory.generateExcelReports) {

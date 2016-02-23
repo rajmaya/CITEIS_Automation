@@ -37,8 +37,11 @@ public class HTMLDesignFilesWriter
   public static void writeIMG()
   {
     copyImage("images/fail.png", Directory.IMGDir);
+    copyImage("images/fail_mail.png", Directory.IMGDir);
     copyImage("images/pass.png", Directory.IMGDir);
+    copyImage("images/pass_mail.png", Directory.IMGDir);
     copyImage("images/skip.png", Directory.IMGDir);
+    copyImage("images/skip_mail.png", Directory.IMGDir);
     copyImage("images/cat.jpg", Directory.IMGDir);
     copyImage("images/loginfo.png", Directory.IMGDir);
     copyImage("images/logpass.png", Directory.IMGDir);
@@ -61,7 +64,9 @@ public class HTMLDesignFilesWriter
       localFileImageOutputStream.close();
       return;
     }
-    catch (Exception localException2) {}finally
+    catch (Exception localException2) {
+    	System.out.println("HTMLDesignFilesWriter.copyImage()");
+    }finally
     {
       try
       {
