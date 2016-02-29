@@ -117,7 +117,7 @@ public class Element {
 				}
 			} catch(Exception e){
 				CATReports.add("Verifying if "+strLogicalName+ " is displayed",strLogicalName+" should be displayed","Unable to verify "+strLogicalName+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
-				Assert.fail();
+				Assert.fail(e.getMessage());
 			}
 		}
 		else{
