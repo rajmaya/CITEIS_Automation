@@ -28,7 +28,7 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>javax.activation</groupId>
@@ -94,14 +94,28 @@
 		</dependency>
 
 
-		<!-- <dependency> <groupId>atu</groupId> <artifactId>atu.reports</artifactId> 
-			<version>1.0</version> <scope>system</scope> <systemPath>${project.basedir}/ExtnLib/ATUReporter_Selenium_testNG_5.5_BETA.jar</systemPath> 
-			</dependency> -->
+		<dependency>
+			<groupId>atu</groupId>
+			<artifactId>atu.reports</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/ExtnLib/CATREports.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.4</version>
+		</dependency>
+
 	</dependencies>
 
 
 	<build>
 		<plugins>
+
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -114,8 +128,9 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/${suite}</suiteXmlFile>
 					</suiteXmlFiles>
-					<!-- <suiteXmlFiles> <suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/AppFlow.xml</suiteXmlFile> 
-						</suiteXmlFiles> -->
+					<suiteXmlFiles>
+						<suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/AppFlow.xml</suiteXmlFile>
+					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>

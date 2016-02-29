@@ -38,7 +38,7 @@ public class FTPConnect {
 			ftpClient.disconnect();
 
 			System.out.println("Disconnected");
-		} catch (IOException ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
