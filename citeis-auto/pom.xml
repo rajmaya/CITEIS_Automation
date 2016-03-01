@@ -99,7 +99,7 @@
 			<artifactId>atu.reports</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/ExtnLib/CATREports.jar</systemPath>
+			<systemPath>${project.basedir}/ExtnLib/CATReports.jar</systemPath>
 		</dependency>
 
 
