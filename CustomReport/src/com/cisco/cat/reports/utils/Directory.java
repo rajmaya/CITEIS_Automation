@@ -44,6 +44,7 @@ public class Directory
   public static boolean generateConfigReports = true;
   public static boolean generateExcelReports = false;
   public static boolean takeScreenshot = false;
+  public static boolean takeScreenshotOnFail = false;
   public static boolean continueExecutionAfterStepFailed = false;
   public static boolean recordExecutionAvailable = false;
   public static boolean recordSuiteExecution = false;
@@ -70,6 +71,7 @@ public class Directory
         String str6 = localProperties.getProperty("cat.reports.excel").trim();
         String str7 = localProperties.getProperty("cat.reports.continueExecutionAfterStepFailed").trim();
         String str8 = localProperties.getProperty("cat.reports.recordExecution").trim();
+        String str9 = localProperties.getProperty("cat.reports.takescreenshotonFail").trim();
         try
         {
           if ((str2 != null) && (str2.length() > 0)) {
@@ -82,6 +84,13 @@ public class Directory
             }
             catch (Exception localException1) {}
           }
+          if ((str9 != null) && (str9.length() > 0)) {
+              try
+              {
+                takeScreenshotOnFail = Boolean.parseBoolean(str9);
+              }
+              catch (Exception localException1) {}
+            }
           if ((str5 != null) && (str5.length() > 0)) {
             try
             {

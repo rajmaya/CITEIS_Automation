@@ -100,13 +100,24 @@ public class CATReports
   public static void add(String paramString, LogAs paramLogAs, CaptureScreen paramCaptureScreen)
   {
     if (paramCaptureScreen != null) {
-      if (paramCaptureScreen.isCaptureBrowserPage()) {
-        takeBrowserPageScreenShot();
-      } else if (paramCaptureScreen.isCaptureDesktop()) {
-        takeDesktopScreenshot();
-      } else if (paramCaptureScreen.isCaptureWebElement()) {
-        takeWebElementScreenShot(paramCaptureScreen.getElement());
-      }
+     if((paramLogAs.equals(LogAs.FAILED) && Directory.takeScreenshotOnFail) || (!Directory.takeScreenshotOnFail && Directory.takeScreenshot)){
+    	 if (paramCaptureScreen.isCaptureBrowserPage()) {
+    	        takeBrowserPageScreenShot();
+    	      } else if (paramCaptureScreen.isCaptureDesktop()) {
+    	        takeDesktopScreenshot();
+    	      } else if (paramCaptureScreen.isCaptureWebElement()) {
+    	        takeWebElementScreenShot(paramCaptureScreen.getElement());
+    	      }
+     }/*else if(!Directory.takeScreenshotOnFail && Directory.takeScreenshot){
+    	 if (paramCaptureScreen.isCaptureBrowserPage()) {
+    	        takeBrowserPageScreenShot();
+    	      } else if (paramCaptureScreen.isCaptureDesktop()) {
+    	        takeDesktopScreenshot();
+    	      } else if (paramCaptureScreen.isCaptureWebElement()) {
+    	        takeWebElementScreenShot(paramCaptureScreen.getElement());
+    	      }
+     }*/
+      
     }
     Steps localSteps = new Steps();
     localSteps.setDescription(paramString);
@@ -123,6 +134,7 @@ public class CATReports
   public static void add(String paramString1, String paramString2, LogAs paramLogAs, CaptureScreen paramCaptureScreen)
   {
     if (paramCaptureScreen != null) {
+    	if((paramLogAs.equals(LogAs.FAILED) && Directory.takeScreenshotOnFail) || (!Directory.takeScreenshotOnFail && Directory.takeScreenshot)){
       if (paramCaptureScreen.isCaptureBrowserPage()) {
         takeBrowserPageScreenShot();
       } else if (paramCaptureScreen.isCaptureDesktop()) {
@@ -130,6 +142,7 @@ public class CATReports
       } else if (paramCaptureScreen.isCaptureWebElement()) {
         takeWebElementScreenShot(paramCaptureScreen.getElement());
       }
+    	}
     }
     Steps localSteps = new Steps();
     localSteps.setDescription(paramString1);
@@ -146,6 +159,7 @@ public class CATReports
   public static void add(String paramString1, String paramString2, String paramString3, LogAs paramLogAs, CaptureScreen paramCaptureScreen)
   {
     if (paramCaptureScreen != null) {
+    	if((paramLogAs.equals(LogAs.FAILED) && Directory.takeScreenshotOnFail) || (!Directory.takeScreenshotOnFail && Directory.takeScreenshot)){
       if (paramCaptureScreen.isCaptureBrowserPage()) {
         takeBrowserPageScreenShot();
       } else if (paramCaptureScreen.isCaptureDesktop()) {
@@ -153,6 +167,7 @@ public class CATReports
       } else if (paramCaptureScreen.isCaptureWebElement()) {
         takeWebElementScreenShot(paramCaptureScreen.getElement());
       }
+    	}
     }
     Steps localSteps = new Steps();
     localSteps.setDescription(paramString1);
@@ -169,6 +184,7 @@ public class CATReports
   public static void add(String paramString1, String paramString2, String paramString3, String paramString4, LogAs paramLogAs, CaptureScreen paramCaptureScreen)
   {
     if (paramCaptureScreen != null) {
+    	if((paramLogAs.equals(LogAs.FAILED) && Directory.takeScreenshotOnFail) || (!Directory.takeScreenshotOnFail && Directory.takeScreenshot)){
       if (paramCaptureScreen.isCaptureBrowserPage()) {
         takeBrowserPageScreenShot();
       } else if (paramCaptureScreen.isCaptureDesktop()) {
@@ -176,6 +192,7 @@ public class CATReports
       } else if (paramCaptureScreen.isCaptureWebElement()) {
         takeWebElementScreenShot(paramCaptureScreen.getElement());
       }
+    	}
     }
     Steps localSteps = new Steps();
     localSteps.setDescription(paramString1);
