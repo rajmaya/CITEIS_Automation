@@ -16,7 +16,6 @@
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -29,7 +28,7 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-
+		
 
 		<dependency>
 			<groupId>javax.activation</groupId>
@@ -94,20 +93,10 @@
 			<version>1.0.9</version>
 		</dependency>
 
-		<dependency>
-			<groupId>commons-net</groupId>
-			<artifactId>commons-net</artifactId>
-			<version>3.3</version>
-		</dependency>
 
-		<dependency>
-			<groupId>cat</groupId>
-			<artifactId>cat.reports</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/ExtnLib/CustomReport.jar</systemPath>
-		</dependency>
-
+		<!-- <dependency> <groupId>atu</groupId> <artifactId>atu.reports</artifactId> 
+			<version>1.0</version> <scope>system</scope> <systemPath>${project.basedir}/ExtnLib/ATUReporter_Selenium_testNG_5.5_BETA.jar</systemPath> 
+			</dependency> -->
 	</dependencies>
 
 
@@ -123,7 +112,7 @@
 					</includes>
 					<!-- <skipTests>true</skipTests> -->
 					<suiteXmlFiles>
-						<suiteXmlFile>${session.executionRootDirectory}/src/test/java/com/cisco/citeis/suites/${suite}</suiteXmlFile>
+						<suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/${suite}</suiteXmlFile>
 					</suiteXmlFiles>
 					<!-- <suiteXmlFiles> <suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/AppFlow.xml</suiteXmlFile> 
 						</suiteXmlFiles> -->
@@ -131,5 +120,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
