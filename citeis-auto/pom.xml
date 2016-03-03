@@ -123,8 +123,9 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/${suite}</suiteXmlFile>
 					</suiteXmlFiles>
-					<suiteXmlFiles> <suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/AppFlow.xml</suiteXmlFile> 
-						</suiteXmlFiles>
+					<suiteXmlFiles>
+						<suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/AppFlow.xml</suiteXmlFile>
+					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>
