@@ -1,10 +1,12 @@
 package com.cisco.cat.reports.listeners;
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
 import org.testng.IExecutionListener;
 import org.testng.IReporter;
@@ -44,6 +46,14 @@ public class CATReportsListener
   public static boolean suiteStarted = false;
   
   public String suiteName;
+  
+ /* Properties localProperties = new Properties();
+
+  
+  String strServer = localProperties.getProperty("cat.reports.server.ip").trim();
+  String strUsername= localProperties.getProperty("cat.reports.server.username").trim();
+  String strPassword= localProperties.getProperty("cat.reports.server.password").trim();
+  String strRemotePath= localProperties.getProperty("cat.reports.server.remotepath").trim();*/
   
   public CATReportsListener() {}
   
@@ -169,11 +179,16 @@ public void onStart(ITestContext paramITestContext) {
       startReportingForSkipped(this.skippedTests);
       int totaltest=this.passedTests.size()+this.failedTests.size()+this.skippedTests.size();
       String strLocalPath = Directory.CURRENTDir+"\\results";
-      FTPConnect.uploadToFTP("10.197.64.122", "anonymous", "anonymous", "/Gopal/results", strLocalPath);
-      SendMail.passedTests = this.passedTests;
+      String strServer = Directory.strServer;
+      String strUsername= Directory.strUsername;
+      String strPassword= Directory.strPassword;
+      String strRemotePath= Directory.strRemotePath;
+    //  FTPConnect.uploadToFTP(strServer, strUsername, strPassword, strRemotePath, strLocalPath);
+      //FTPConnect.uploadToFTP("10.197.64.122", "anonymous", "anonymous", "/Gopal/results", strLocalPath);
+     /* SendMail.passedTests = this.passedTests;
       SendMail.failedTests = this.failedTests;
-      SendMail.skippedTests = this.skippedTests;
-      SendMail.sendReportToMail(totaltest, this.passedTests.size(), this.failedTests.size(),this.skippedTests.size());
+      SendMail.skippedTests = this.skippedTests;*/
+     // SendMail.sendReportToMail(totaltest, this.passedTests.size(), this.failedTests.size(),this.skippedTests.size());
      
       if (Directory.generateExcelReports) {
         //ExcelReports.generateExcelReport(Directory.RUNDir + Directory.SEP + "(" + Directory.REPORTSDIRName + ") " + Directory.RUNName + this.runCount + ".xlsx", this.passedTests, this.failedTests, this.skippedTests);

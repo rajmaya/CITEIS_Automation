@@ -99,14 +99,12 @@
 			<version>3.4</version>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>atu</groupId>
 			<artifactId>atu.reports</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/ExtnLib/CustomReport.jar</systemPath>
+			<systemPath>${project.basedir}/ExtnLib/CATReports-NoEmail-NoFTP.jar</systemPath>
 		</dependency>
 	</dependencies>
 
@@ -125,8 +123,8 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/${suite}</suiteXmlFile>
 					</suiteXmlFiles>
-					<!-- <suiteXmlFiles> <suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/AppFlow.xml</suiteXmlFile> 
-						</suiteXmlFiles> -->
+					<suiteXmlFiles> <suiteXmlFile>${project.basedir}/src/test/java/com/cisco/citeis/suites/AppFlow.xml</suiteXmlFile> 
+						</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -67,7 +67,9 @@ public class SendMail {
 
 	public static void sendReportToMail(int tno, int passed, int failed, int skipped){
 
-		String to = "majampan@cisco.com";
+		String to = Directory.strSendTo;
+		String strCc= Directory.strSendCc;
+		
 		final String from = "engineeer.sb@gmail.com";
 		String host = "smtp.gmail.com";
 
@@ -93,7 +95,7 @@ public class SendMail {
 			message.setFrom(new InternetAddress(from));
 			message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
 			message.addRecipients(Message.RecipientType.CC, 
-                    InternetAddress.parse("majampan@cisco.com,udondeti@cisco.com,pponguru@cisco.com,ramyselv@cisco.com"));
+                    InternetAddress.parse(strCc));
 			message.setSubject("Citeis Execution status report");
 			MimeBodyPart messageBodyPart = new MimeBodyPart();
 			//String html = " \n <html><head>  <title>CITEIS Automation report</title></head><body>  <p>Please find the report below</p>  <table float: left\" border = 1>    <tr bgcolor=\"yellow\">      <th>Total No</th><th>Passed</th><th>Failed</th><th>Skipped</th>    </tr>    <tr>      <td>"+tno+"</td><td>"+passed+"</td><td>"+failed+"</td><td>"+skipped+"</td>    </tr>     </table><p>Click on following link to view the result <a href= "+strResultpath+">Click Here</a> <br><br> Thanks, <br> CITIES Automation Team</p></body></html>";

@@ -50,6 +50,12 @@ public class Directory
   public static boolean recordSuiteExecution = false;
   public static boolean recordTestMethodExecution = false;
   public static final String MAIN_RECORD_FILE_NAME = "CAT_CompleteSuiteRecording";
+  public static String strServer =null;
+  public static String strUsername =null;
+  public static String strPassword =null;
+  public static String strRemotePath =null;
+  public static String strSendTo = null;
+  public static String strSendCc = null;
   
   public Directory() {}
   
@@ -72,6 +78,13 @@ public class Directory
         String str7 = localProperties.getProperty("cat.reports.continueExecutionAfterStepFailed").trim();
         String str8 = localProperties.getProperty("cat.reports.recordExecution").trim();
         String str9 = localProperties.getProperty("cat.reports.takescreenshotonFail").trim();
+        strServer = localProperties.getProperty("cat.reports.server.ip").trim();
+        strUsername= localProperties.getProperty("cat.reports.server.username").trim();
+        strPassword= localProperties.getProperty("cat.reports.server.password").trim();
+        strRemotePath= localProperties.getProperty("cat.reports.server.remotepath").trim();
+        strSendTo= localProperties.getProperty("cat.reports.server.sendto").trim();
+        strSendCc= localProperties.getProperty("cat.reports.server.sendcc").trim();
+        
         try
         {
           if ((str2 != null) && (str2.length() > 0)) {
