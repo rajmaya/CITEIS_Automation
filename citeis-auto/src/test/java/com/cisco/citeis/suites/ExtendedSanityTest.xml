@@ -7,11 +7,10 @@
 				<methods>
 					<parameter name="application" value="fcs-test-qa" />
 					<parameter name="wrongapplication" value="fcs-test-qa1" />
-					<parameter name="profile" value="fcs-test" />
+					<parameter name="profile" value="test-qa1" />
 					<parameter name="wrongprofile" value="fcs-test1" />
-					<parameter name="epg" value="stage-epg-wo" />
+					<parameter name="epg" value="MG-QA-Feb11" />
 					<parameter name="wrongepg" value="stage-epg-wo1" />
-
 				</methods>
 			</class>
 		</classes>

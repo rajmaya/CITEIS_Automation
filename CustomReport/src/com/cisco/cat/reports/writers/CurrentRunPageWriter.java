@@ -64,7 +64,7 @@ public class CurrentRunPageWriter
   public static void content(PrintWriter paramPrintWriter, List<ITestResult> paramList1, List<ITestResult> paramList2, List<ITestResult> paramList3, List<ITestResult> paramList4, List<ITestResult> paramList5, List<ITestResult> paramList6, int paramInt, long paramLong1, long paramLong2)
   {
     int i = paramList1.size() + paramList2.size() + paramList3.size();
-    paramPrintWriter.println("<td id=\"content\">\n                    <div class=\"info\">\n                        The following pie chart demonstrates the percentage of Passed, Failed and Skipped Test Cases<br/>\n                        Time Taken for Executing below Test Cases: <b>" + getExecutionTime(paramLong1, paramLong2) + "</b> <br/>\n" + "                        Current Run Number: <b>Run " + paramInt + "</b>\n" + "                    </div>\n" + "<div class=\"info\">" + "<br/>" + "<b>Run Description</b><br/><br/>" + CATReports.currentRunDescription + "</div>" + "                    <div>\n" + "                        <div class=\"chartStyle summary\" style=\"width: 32%;background-color: #3B9C9C;\">\n" + "                            <b>Summary</b><br/><br/>\n" + "                            <table>\n" + "                            <tr>\n" + "                                <td>Execution Date</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + Utils.getCurrentTime() + "</td>\n" + "                            </tr>\n" + "                            <tr>\n" + "                                <td>Total Test Cases</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + i + "</td>\n" + "                            </tr>\n" + "                            <tr>\n" + "                                <td>Passed</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + paramList1.size() + "</td>\n" + "                            </tr>\n" + "                            \n" + "                            <tr>\n" + "                                <td>Failed</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + paramList2.size() + "</td>\n" + "                            </tr>\n" + "\n" + "                            <tr>\n" + "                                <td>Skipped</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + paramList3.size() + "</td>\n" + "                            </tr>\n" + "                        </table> \n" + "                        </div>" + "                        <div class=\"chartStyle\" style=\"text-align: left;margin-left: 30px;float: left;width: 60%;\">                        \n" + "                            <div id=\"chart\" style=\"height:300px;color:black;\"></div>\n" + "                        </div>\n" + "                    </div>\n" + "                    <div>\n");
+    paramPrintWriter.println("<td id=\"content\">\n                    <div class=\"info\">\n                        The following pie chart demonstrates the percentage of Passed, Failed and Skipped Test Cases<br/>\n                        Time Taken for Executing below Test Cases: <b>" + getExecutionTime(paramLong1, paramLong2) + "</b> <br/>\n" + "                        Current Run Number: <b>Run " + paramInt + "</b>\n" + "                    </div>\n" + "<div class=\"info\">" + "<br/>" + "<b>Run Description</b><br/><br/><h>Test Suite Name : </h><b>'" + CATReports.currentRunDescription + "'</b></div>" + "                    <div>\n" + "                        <div class=\"chartStyle summary\" style=\"width: 32%;background-color: #3B9C9C;\">\n" + "                            <b>Summary</b><br/><br/>\n" + "                            <table>\n" + "                            <tr>\n" + "                                <td>Execution Date</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + Utils.getCurrentTime() + "</td>\n" + "                            </tr>\n" + "                            <tr>\n" + "                                <td>Total Test Cases</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + i + "</td>\n" + "                            </tr>\n" + "                            <tr>\n" + "                                <td>Passed</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + paramList1.size() + "</td>\n" + "                            </tr>\n" + "                            \n" + "                            <tr>\n" + "                                <td>Failed</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + paramList2.size() + "</td>\n" + "                            </tr>\n" + "\n" + "                            <tr>\n" + "                                <td>Skipped</td>\n" + "                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>\n" + "                                <td>" + paramList3.size() + "</td>\n" + "                            </tr>\n" + "                        </table> \n" + "                        </div>" + "                        <div class=\"chartStyle\" style=\"text-align: left;margin-left: 30px;float: left;width: 60%;\">                        \n" + "                            <div id=\"chart\" style=\"height:300px;color:black;\"></div>\n" + "                        </div>\n" + "                    </div>\n" + "                    <div>\n");
     if (Directory.recordSuiteExecution) {
       paramPrintWriter.println("<p id=\"showmenu\">Click Me to Show/Hide the Execution Video</p><div id=\"video\" class=\"video\"><object classid=\"clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921\" codebase=\"http://downloads.videolan.org/pub/videolan/vlc/latest/win32/axvlc.cab\" width=\"400\" height=\"300\" id=\"vlc\" events=\"True\">  <param name=\"Src\" value=\"Recording" + Directory.SEP + "CAT_CompleteSuiteRecording" + ".mov\"></param>" + "  <param name=\"ShowDisplay\" value=\"True\" ></param>" + "    <param name=\"AutoLoop\" value=\"no\"></param>" + "    <param name=\"AutoPlay\" value=\"no\"></param>" + "    <embed type=\"application/x-google-vlc-plugin\" name=\"vlcfirefox\" autoplay=\"no\" loop=\"no\" width=\"99%\"  height=\"100%\" target=\"" + "Recording" + Directory.SEP + "CAT_CompleteSuiteRecording" + ".mov\"></embed>" + " </object>" + "</div>");
     } else {
@@ -79,7 +79,7 @@ public class CurrentRunPageWriter
       paramPrintWriter.println("<option class=\"filterOption\" value=\"" + Attributes.getSuiteNameMapperMap().get(str) + "\">" + str + "</option>\n");
     }
     paramPrintWriter.println("</select>Filter Suites&nbsp;&nbsp;</div>");
-    paramPrintWriter.println("                        <table id=\"tableStyle\" class=\"chartStyle\" style=\"height:50px; float: left\">\n                            <tr>\n                                <th>Suite Name</th>\n                                <th>Package Name</th>\n                                <th>Class Name</th>\n                                <th>Method Type</th>\n                                <th>Test Case Name</th>\n<th>Browser</th>                                <th>Time</th>\n                                <th style=\"width: 7%\">Status</th>\n                            </tr>\n");
+    paramPrintWriter.println("                        <table id=\"tableStyle\" class=\"chartStyle\" style=\"height:50px; float: left\">\n                            <tr>\n                                       <th>Machine</th>\n <th>Browser</th>\n <th>Class Name</th>\n                                <th>Method Type</th>\n                                <th>Test Case Name</th>\n                                <th>Time</th>\n                                <th style=\"width: 7%\">Status</th>\n                            </tr>\n");
     writePassedData(paramPrintWriter, paramList1, paramInt);
     writeFailedData(paramPrintWriter, paramList2, paramInt);
     writeSkippedData(paramPrintWriter, paramList3, paramInt);
@@ -100,7 +100,43 @@ public class CurrentRunPageWriter
       if (!localITestResult.getMethod().isTest()) {
         str = "config " + getSuiteNameMapper(localITestResult);
       }
-      paramPrintWriter.print("                            <tr class=\"all " + str + "\">\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getSuiteName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getPackageName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getClassName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getMethodType(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getTestCaseName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + localITestResult.getAttribute(Platform.BROWSER_NAME_PROP).toString() + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getExecutionTime(localITestResult) + "</a></td>\n" + "                                <td><img  style=\"border: none; width: 25px\" src=\"../../HTML_Design_Files/IMG/pass.png\"></td>\n" + "                            </tr>\n");
+			paramPrintWriter
+					.print("<tr class=\"all "
+							+ str
+							+ "\">\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ localITestResult.getAttribute(Platform.HOST_NAME_PROP)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ localITestResult.getAttribute(
+									Platform.BROWSER_NAME_PROP).toString()
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getClassName(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getMethodType(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getTestCaseName(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getExecutionTime(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><img  style=\"border: none; width: 25px\" src=\"../../HTML_Design_Files/IMG/pass.png\"></td>\n"
+							+ "</tr>\n");
     }
   }
   
@@ -115,7 +151,42 @@ public class CurrentRunPageWriter
       if (!localITestResult.getMethod().isTest()) {
         str = "config " + getSuiteNameMapper(localITestResult);
       }
-      paramPrintWriter.print("                            <tr class=\"all " + str + "\">\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getSuiteName(localITestResult) + "</a></td>\n" + "                              <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getPackageName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getClassName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getMethodType(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getTestCaseName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + localITestResult.getAttribute(Platform.BROWSER_NAME_PROP).toString() + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getExecutionTime(localITestResult) + "</a></td>\n" + "                                <td><img  style=\"border: none;width: 25px\" src=\"../../HTML_Design_Files/IMG/fail.png\"></td>\n" + "                            </tr>\n");
+			paramPrintWriter
+					.print("<tr class=\"all "+ str
+							+ "\">\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ localITestResult.getAttribute(Platform.HOST_NAME_PROP)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ localITestResult.getAttribute(
+									Platform.BROWSER_NAME_PROP).toString()
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getClassName(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getMethodType(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getTestCaseName(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getExecutionTime(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><img  style=\"border: none;width: 25px\" src=\"../../HTML_Design_Files/IMG/fail.png\"></td>\n"
+							+ "</tr>\n");
     }
   }
   
@@ -130,7 +201,43 @@ public class CurrentRunPageWriter
       if (!localITestResult.getMethod().isTest()) {
         str = "config " + getSuiteNameMapper(localITestResult);
       }
-      paramPrintWriter.print("                            <tr class=\"all " + str + "\">\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getSuiteName(localITestResult) + "</a></td>\n" + "                                  <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getPackageName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getClassName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getMethodType(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getTestCaseName(localITestResult) + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + localITestResult.getAttribute(Platform.BROWSER_NAME_PROP).toString() + "</a></td>\n" + "                                <td><a href=\"" + getTestCaseHTMLPath(localITestResult, paramInt) + "\">" + getExecutionTime(localITestResult) + "</a></td>\n" + "                                <td><img  style=\" border: none;width: 25px\" src=\"../../HTML_Design_Files/IMG/skip.png\"></td>\n" + "                            </tr>\n");
+			paramPrintWriter
+					.print("<tr class=\"all "
+							+ str
+							+ "\">\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ localITestResult.getAttribute(Platform.HOST_NAME_PROP)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ localITestResult.getAttribute(
+									Platform.BROWSER_NAME_PROP).toString()
+							+ "</a></td>\n"
+							+ " <td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getClassName(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getMethodType(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getTestCaseName(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><a href=\""
+							+ getTestCaseHTMLPath(localITestResult, paramInt)
+							+ "\">"
+							+ getExecutionTime(localITestResult)
+							+ "</a></td>\n"
+							+ "<td><img  style=\" border: none;width: 25px\" src=\"../../HTML_Design_Files/IMG/skip.png\"></td>\n"
+							+ "</tr>\n");
     }
   }
   
