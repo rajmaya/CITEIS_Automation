@@ -11,10 +11,13 @@ import com.cisco.cat.reports.CATReports;
 import com.cisco.cat.reports.logging.LogAs;
 import com.cisco.cat.reports.sel.CaptureScreen;
 import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
+import com.cisco.citeis.common.ApplicationConstants;
 
 public class Element {
 	public static boolean verify(String strLogicalName,WebElement element,String strValue,WebDriver driver){
 		boolean blResult=false;
+		
+		String elementPath = element.toString().split(" -> ")[1];
 		if(element!=null){
 			try{
 			if(element.isDisplayed()){
@@ -34,7 +37,7 @@ public class Element {
 			}		
 			}
 			catch(Exception e){
-				CATReports.add("Verifying text of "+strLogicalName,"To verify text '"+strValue+"'","Unable to verify "+strLogicalName+" \n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying text of "+strLogicalName,"To verify text '"+strValue+"'","Unable to verify "+strLogicalName+"element, Element not found: "+elementPath, LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}else{
 			CATReports.add("Verifying text of "+strLogicalName,"To verify text '"+strValue+"'","Unable to verify "+strLogicalName+" element, element is null", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
@@ -45,6 +48,8 @@ public class Element {
 
 	public static boolean mouseOver(String strLogicalName,WebElement element,WebDriver driver){
 		boolean blResult=false;
+		
+		String elementPath = element.toString().split(" -> ")[1];
 		if(element!=null){
 			try{
 			if(element.isDisplayed()){
@@ -63,7 +68,7 @@ public class Element {
 			}
 			}				
 			catch(Exception e){
-				CATReports.add("Verifying mouse over of "+strLogicalName,"To verify mouse over of "+strLogicalName,"Unable to verify "+strLogicalName+" element"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying mouse over of "+strLogicalName,"To verify mouse over of "+strLogicalName,"Unable to verify "+strLogicalName+" element, Element not found: "+elementPath, LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}
 		else{
@@ -75,6 +80,7 @@ public class Element {
 
 	public static boolean mouseOver(String strLogicalName,WebElement element,int inWait,WebDriver driver){
 		boolean blResult=false;
+		String elementPath = element.toString().split(" -> ")[1];
 		if(element!=null){
 			try{
 			if(element.isDisplayed()){
@@ -94,7 +100,7 @@ public class Element {
 			}	
 			}				
 			catch(Exception e){
-				CATReports.add("Verifying mouse over of "+strLogicalName,"To verify mouse over of "+strLogicalName,"Unable to verify "+strLogicalName+" element"+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying mouse over of "+strLogicalName,"To verify mouse over of "+strLogicalName,"Unable to verify "+strLogicalName+" element, Element not found: "+elementPath, LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		}
 		else{
@@ -106,6 +112,8 @@ public class Element {
 
 	public static boolean verify(String strLogicalName,WebElement element,WebDriver driver){
 		boolean blResult=false;
+		
+		String elementPath = element.toString().split(" -> ")[1];
 		if(element!=null){
 			try{
 				if(element.isDisplayed()){
@@ -116,7 +124,7 @@ public class Element {
 					CATReports.add("Verifying if "+strLogicalName+ " is displayed",strLogicalName+" should be displayed","Unable to verify "+strLogicalName+", element is disabled", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			} catch(Exception e){
-				CATReports.add("Verifying if "+strLogicalName+ " is displayed",strLogicalName+" should be displayed","Unable to verify "+strLogicalName+"\n"+"Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying if "+strLogicalName+ " is displayed",strLogicalName+" should be displayed","Unable to verify "+strLogicalName+" Element not found: "+elementPath, LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}
