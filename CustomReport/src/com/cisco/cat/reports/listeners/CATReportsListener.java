@@ -63,6 +63,8 @@ public class CATReportsListener
 
 public void onStart(ITestContext paramITestContext) {
 	  suiteName = paramITestContext.getSuite().getName();
+	  CATReports.currentRunDescription = "Execution of Test Suite '"+suiteName+"'";
+	  //CATReports.currentRunDescription = "Test Suite Name : '"+suiteName+"'";
 	  CATReports.currentRunDescription = suiteName;
   }
   
