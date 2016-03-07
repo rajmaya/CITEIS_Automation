@@ -187,6 +187,7 @@ public class CurrentRunPageWriter
 							+ "</a></td>\n"
 							+ "<td><img  style=\"border: none;width: 25px\" src=\"../../HTML_Design_Files/IMG/fail.png\"></td>\n"
 							+ "</tr>\n");
+			
     }
   }
   
