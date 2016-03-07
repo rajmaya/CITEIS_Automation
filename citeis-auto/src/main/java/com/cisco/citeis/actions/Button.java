@@ -15,6 +15,8 @@ import com.cisco.cat.reports.sel.CaptureScreen.ScreenshotOf;
 public class Button {
 	public static boolean click(String strLogicalName,WebElement element,WebDriver driver){
 		boolean blResult=false;
+		
+		String elementPath = element.toString().split(" -> ")[1];
 		if(element!=null){
 			try{
 			if(element.isDisplayed()){
@@ -31,7 +33,7 @@ public class Button {
 				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click, "+strLogicalName+" Button is not displayed", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 			}catch(Exception e){
-				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click "+strLogicalName+" Button \n Exception occurred: "+e.getMessage(), LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click "+strLogicalName+" Button, Element not found: "+elementPath, LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				Assert.fail(e.getMessage());
 			}
 		}else{
@@ -42,6 +44,8 @@ public class Button {
    
 	public static boolean mouseClick(String strLogicalName,WebElement element,WebDriver driver){
 		boolean blResult=false;
+		
+		String elementPath = element.toString().split(" -> ")[1];
 		if (element != null) {
 			try {
 				if (element.isDisplayed()) {
@@ -67,7 +71,7 @@ public class Button {
 					CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			} catch (Exception e) {
-				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName + " Button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click "+strLogicalName+" Button, Element not found: "+elementPath, LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		} else {
 			CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName+ " Button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
@@ -77,6 +81,8 @@ public class Button {
 	
    public static boolean JSClick(String strLogicalName,WebElement element,WebDriver driver){
 		boolean blResult = false;
+		
+		String elementPath = element.toString().split(" -> ")[1];
 		if (element != null) {
 			try {
 				if (element.isDisplayed()) {
@@ -92,7 +98,7 @@ public class Button {
 					CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click,  " + strLogicalName+ " Button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			} catch (Exception e) {
-				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName + " Button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click "+strLogicalName+" Button, Element not found: "+elementPath, LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		} else {
 			CATReports.add("Clicking on "+strLogicalName+" Button","To click on "+strLogicalName+" Button","Unable to click " + strLogicalName+ " Button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
@@ -102,6 +108,7 @@ public class Button {
    
 	public static boolean verifyText(String strLogicalName,WebElement element,String strValue,WebDriver driver){
 		boolean blResult=false;
+		String elementPath = element.toString().split(" -> ")[1];
 		try {
 			if (element.isDisplayed()) {
 				String btnName = element.getText();
@@ -120,6 +127,8 @@ public class Button {
 	
 	public static boolean verify(String strLogicalName,WebElement element,WebDriver driver){
 		boolean blResult = false;
+		
+		String elementPath = element.toString().split(" -> ")[1];
 		if (element != null) {
 			try {
 				if (element.isDisplayed()) {
