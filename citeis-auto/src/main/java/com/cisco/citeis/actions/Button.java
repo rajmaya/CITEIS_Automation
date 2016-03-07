@@ -120,7 +120,7 @@ public class Button {
 				CATReports.add("Verifying Text of " + strLogicalName+ " button, Element is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		} catch (Exception e) {
-			CATReports.add("Verifying Text of " + strLogicalName + " Button",strValue,"Unable to verify " + strLogicalName + " Button, Element not found: "+elementPath,LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			CATReports.add("Verifying Text of " + strLogicalName + " Button",strValue,"Unable to verify " + strLogicalName + " button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 		}
 		return blResult;
 	}
@@ -139,7 +139,7 @@ public class Button {
 					CATReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify, " + strLogicalName+ " button is not displayed", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 				}
 			} catch (Exception e) {
-				CATReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify " + strLogicalName + " Button, Element not found: "+elementPath,LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				CATReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify " + strLogicalName + " button"+ "\n" + "Exception occurred: " + e.getMessage(),LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 			}
 		} else {
 			CATReports.add("Verifying of " + strLogicalName + " Button",strLogicalName + " button should be displayed","Unable to verify, " + strLogicalName+ " button, element is null", LogAs.FAILED,new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
