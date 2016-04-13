@@ -2,9 +2,9 @@
 
 <suite name="Sanity Suite" verbose="5">
 	<test name="Sanity Test">
-	<parameter name="application" value="fcs-test-qa" />
+	<parameter name="application" value="TestApplicationJK" />
 					<parameter name="wrongapplication" value="fcs-test-qa1" />
-					<parameter name="profile" value="fcs-test" />
+					<parameter name="profile" value="devvk" />
 					<parameter name="wrongprofile" value="fcs-test1" />
 					<parameter name="epg" value="stage-epg-wo" />
 					<parameter name="wrongepg" value="stage-epg-wo1" />
