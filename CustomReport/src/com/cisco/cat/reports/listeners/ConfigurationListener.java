@@ -18,6 +18,7 @@ public class ConfigurationListener
   static List<ITestResult> passedConfigurations = new ArrayList();
   static List<ITestResult> failedConfigurations = new ArrayList();
   static List<ITestResult> skippedConfigurations = new ArrayList();
+  static List<ITestResult> infoCnfigurations = new ArrayList();
   
   public ConfigurationListener() {}
   
@@ -44,11 +45,22 @@ public class ConfigurationListener
     }
   }
   
+  public void onConfigurationInfo(ITestResult paramITestResult){
+  
+  	 if (Directory.generateConfigReports) {
+      infoCnfigurations.add(paramITestResult);
+    }
+  
+  }
+  
   public static void startConfigurationMethodsReporting(int paramInt)
   {
     startReportingForPassedConfigurations(passedConfigurations, paramInt);
     startReportingForFailedConfigurations(failedConfigurations, paramInt);
     startReportingForSkippedConfigurations(skippedConfigurations, paramInt);
+    startReportingForInfoConfigurations(infoCnfigurations, paramInt);
+    
+  
   }
   
   private static void startReportingForPassedConfigurations(List<ITestResult> paramList, int paramInt)
@@ -143,6 +155,52 @@ public class ConfigurationListener
   }
   
   private static void startReportingForSkippedConfigurations(List<ITestResult> paramList, int paramInt)
+  {
+    PrintWriter localPrintWriter = null;
+    Iterator localIterator = paramList.iterator();
+    for (;;)
+    {
+      if (localIterator.hasNext())
+      {
+        ITestResult localITestResult = (ITestResult)localIterator.next();
+        String str = localITestResult.getAttribute("reportDir").toString();
+        try
+        {
+          localPrintWriter = new PrintWriter(str + Directory.SEP + localITestResult.getName() + ".html");
+          TestCaseReportsPageWriter.header(localPrintWriter, localITestResult);
+          TestCaseReportsPageWriter.menuLink(localPrintWriter, localITestResult, 0);
+          TestCaseReportsPageWriter.content(localPrintWriter, localITestResult, paramInt);
+          TestCaseReportsPageWriter.footer(localPrintWriter);
+          try
+          {
+            localPrintWriter.close();
+          }
+          catch (Exception localException1)
+          {
+            localPrintWriter = null;
+          }
+        }
+        catch (FileNotFoundException localFileNotFoundException)
+        {
+          localFileNotFoundException.printStackTrace();
+        }
+        finally
+        {
+          try
+          {
+            localPrintWriter.close();
+          }
+          catch (Exception localException3)
+          {
+            localPrintWriter = null;
+          }
+        }
+      }
+    }
+  }
+  
+  
+  private static void startReportingForInfoConfigurations(List<ITestResult> paramList, int paramInt)
   {
     PrintWriter localPrintWriter = null;
     Iterator localIterator = paramList.iterator();

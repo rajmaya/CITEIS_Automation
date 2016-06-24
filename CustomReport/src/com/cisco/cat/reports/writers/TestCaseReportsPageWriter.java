@@ -268,9 +268,9 @@ public class TestCaseReportsPageWriter
     case 1: 
       return "<img style=\"height:20px;width:20px;border:none\"  alt=\"PASS\" src=\"../" + getTestCaseHTMLPath(paramITestResult) + "/HTML_Design_Files/IMG/logpass.png\" />";
     case 2: 
-      return "<img style=\"height:18px;width:18px;border:none\"  alt=\"FAIL\" src=\"../" + getTestCaseHTMLPath(paramITestResult) + "/HTML_Design_Files/IMG/logfail.png\" />";
+    	return "<img style=\"height:20px;width:20px;border:none\" alt=\"INFO\" src=\"../" + getTestCaseHTMLPath(paramITestResult) + "/HTML_Design_Files/IMG/loginfo.png\" />";      
     case 3: 
-      return "<img style=\"height:20px;width:20px;border:none\" alt=\"INFO\" src=\"../" + getTestCaseHTMLPath(paramITestResult) + "/HTML_Design_Files/IMG/loginfo.png\" />";
+    	return "<img style=\"height:18px;width:18px;border:none\"  alt=\"FAIL\" src=\"../" + getTestCaseHTMLPath(paramITestResult) + "/HTML_Design_Files/IMG/skip.png.png\" />";
     case 4: 
       return "<img style=\"height:20px;width:20px;border:none\"  alt=\"WARNING\" src=\"../" + getTestCaseHTMLPath(paramITestResult) + "/HTML_Design_Files/IMG/logwarning.png\" />";
     }

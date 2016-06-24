@@ -4,12 +4,12 @@
 	<classpathentry kind="lib" path="ExtnLib/guava-14.0.jar"/>
 	<classpathentry kind="lib" path="ExtnLib/jcommon-1.0.12.jar"/>
 	<classpathentry kind="lib" path="ExtnLib/jfreechart-1.0.9.jar"/>
-	<classpathentry kind="lib" path="ExtnLib/selenium-java-2.52.0.jar"/>
-	<classpathentry kind="lib" path="ExtnLib/selenium-server-standalone-2.50.1.jar"/>
-	<classpathentry kind="lib" path="ExtnLib/testng-6.9.9.jar"/>
+	<classpathentry kind="lib" path="ExtnLib/testng-6.9.9.jar" sourcepath="C:/Users/pponguru/.m2/repository/org/testng/testng/6.9.9/testng-6.9.9-sources.jar"/>
 	<classpathentry kind="lib" path="ExtnLib/activation-1.1.jar"/>
 	<classpathentry kind="lib" path="ExtnLib/mail-1.4.7.jar"/>
 	<classpathentry kind="lib" path="ExtnLib/apache-commons-net.jar"/>
+	<classpathentry kind="lib" path="ExtnLib/selenium-java-2.53.0.jar"/>
+	<classpathentry kind="lib" path="ExtnLib/selenium-server-standalone-2.53.0 (2).jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
